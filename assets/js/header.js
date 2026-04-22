@@ -15,6 +15,7 @@ document.write(`
                 <li class="header__menu-item"><a href="popular.html" class="header__menu-link">인기 순위</a></li>
                 <li class="header__menu-item"><a href="arcade.html" class="header__menu-link">미니 오락관</a></li>
                 <li class="header__menu-item"><a href="lucky.html" class="header__menu-link">행운 문구</a></li>
+                <li class="header__menu-item"><a href="contact.html" class="header__menu-link">문의하기</a></li>
             </ul>
         </nav>
 
