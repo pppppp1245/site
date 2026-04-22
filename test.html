@@ -25,8 +25,9 @@
             min-height: 100vh;
             padding-top: 100px;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
         }
 
         .test-panel {
@@ -132,10 +133,17 @@
                 <!-- Javascript에서 이곳에 질문과 버튼을 렌더링합니다 -->
             </div>
         </div>
-    <ins class="kakao_ad_area" style="display:none;"
-        data-ad-unit = "DAN-xKOBhXO5Ytje4xoo"
-        data-ad-width = "300"
-        data-ad-height = "250"></ins>
+
+    <div class="side-top-ads" aria-label="사이드 광고">
+        <ins class="kakao_ad_area side-top-ad side-top-ad--left" style="display:none;"
+            data-ad-unit="DAN-xKOBhXO5Ytje4xoo"
+            data-ad-width="300"
+            data-ad-height="250"></ins>
+        <ins class="kakao_ad_area side-top-ad side-top-ad--right" style="display:none;"
+            data-ad-unit="DAN-xKOBhXO5Ytje4xoo"
+            data-ad-width="300"
+            data-ad-height="250"></ins>
+    </div>
     <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
     </main>
 

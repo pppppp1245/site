@@ -99,6 +99,35 @@ button {
   padding: 0 var(--container-padding);
 }
 
+/* 좌/우 상단 고정 광고 영역 */
+.side-top-ads {
+  position: fixed;
+  top: 104px;
+  left: 0;
+  right: 0;
+  z-index: 70;
+  pointer-events: none;
+}
+
+.side-top-ad {
+  position: absolute !important;
+  pointer-events: auto;
+}
+
+.side-top-ad--left {
+  left: max(12px, calc((100vw - var(--container-width-max)) / 2 - 312px));
+}
+
+.side-top-ad--right {
+  right: max(12px, calc((100vw - var(--container-width-max)) / 2 - 312px));
+}
+
+@media (max-width: 1400px) {
+  .side-top-ads {
+    display: none;
+  }
+}
+
 /* 모바일 전용 텍스트/요소 줄바꿈 등 처리 */
 .mobile-only {
   display: none;

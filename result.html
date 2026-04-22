@@ -25,8 +25,9 @@
             min-height: 100vh;
             padding-top: 100px;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
         }
 
         .result-panel {
@@ -114,6 +115,7 @@
 
     <main class="result-page">
         <div class="result-panel fade-in-up">
+            <h1 style="position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0, 0, 0, 0);">MoodPick 테스트 결과 페이지</h1>
             <p style="font-weight: 700; color: var(--color-text-muted); margin-bottom: 16px;">당신의 분석 결과는...</p>
 
             <div id="result-box">
@@ -125,10 +127,17 @@
                 <a href="index.html" class="btn btn--primary btn--large">메인 홈으로 가기 🏠</a>
             </div>
         </div>
-    <ins class="kakao_ad_area" style="display:none;"
-        data-ad-unit = "DAN-xKOBhXO5Ytje4xoo"
-        data-ad-width = "300"
-        data-ad-height = "250"></ins>
+
+    <div class="side-top-ads" aria-label="사이드 광고">
+        <ins class="kakao_ad_area side-top-ad side-top-ad--left" style="display:none;"
+            data-ad-unit="DAN-xKOBhXO5Ytje4xoo"
+            data-ad-width="300"
+            data-ad-height="250"></ins>
+        <ins class="kakao_ad_area side-top-ad side-top-ad--right" style="display:none;"
+            data-ad-unit="DAN-xKOBhXO5Ytje4xoo"
+            data-ad-width="300"
+            data-ad-height="250"></ins>
+    </div>
     <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
     </main>
 
