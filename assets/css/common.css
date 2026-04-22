@@ -4,33 +4,39 @@
 
 :root {
   /* Colors (트렌디하면서도 부드러운 감성 컬러 팔레트) */
-  --color-primary: #8a2be2;      /* 메인 포인트: 활기찬 보라색 */
-  --color-primary-light: #f5edff; /* 아이콘 배경 등 부드러운 톤 */
-  --color-primary-dark: #5c18a6;  /* 호버 시 어두운 톤 */
-  --color-secondary: #ff758c;     /* 보조 포인트: 감성적인 핑크 */
-  
+  --color-primary: #8a2be2;
+  /* 메인 포인트: 활기찬 보라색 */
+  --color-primary-light: #f5edff;
+  /* 아이콘 배경 등 부드러운 톤 */
+  --color-primary-dark: #5c18a6;
+  /* 호버 시 어두운 톤 */
+  --color-secondary: #ff758c;
+  /* 보조 포인트: 감성적인 핑크 */
+
   --color-text-main: #1a1a24;
   --color-text-muted: #6b7280;
-  
-  --color-bg-base: #fafae8;       /* 기본 배경: 아주 연한 웜톤(크림 화이트 계열로 따뜻한 감성) */
-  --color-bg-base: #faf8fc;       /* 트렌디한 쿨톤 화이트로 덮어쓰기 */
+
+  --color-bg-base: #fafae8;
+  /* 기본 배경: 아주 연한 웜톤(크림 화이트 계열로 따뜻한 감성) */
+  --color-bg-base: #faf8fc;
+  /* 트렌디한 쿨톤 화이트로 덮어쓰기 */
   --color-bg-card: #ffffff;
-  
+
   --color-border: #eef2f6;
 
   /* Typography (Pretendard 기반) */
   --font-family-base: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
-  
+
   /* Shadows (SaaS 스타일 부드러운 그림자) */
   --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
   --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
   --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
   --shadow-glow: 0 0 20px rgba(138, 43, 226, 0.25);
-  
+
   /* Transitions */
   --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  
+
   /* Layout Constants */
   --container-width-max: 1200px;
   --container-padding: 24px;
@@ -39,7 +45,9 @@
 /* =========================================
    Reset
    ========================================= */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -48,15 +56,18 @@
 html {
   font-family: var(--font-family-base);
   font-size: 16px;
-  scroll-behavior: smooth; /* #id 링크 이동 시 부드럽게 스크롤 */
+  scroll-behavior: smooth;
+  /* #id 링크 이동 시 부드럽게 스크롤 */
   color: var(--color-text-main);
   background-color: var(--color-bg-base);
-  -webkit-font-smoothing: antialiased; /* 맥 환경 폰트 렌더링 최적화 */
+  -webkit-font-smoothing: antialiased;
+  /* 맥 환경 폰트 렌더링 최적화 */
 }
 
 body {
   line-height: 1.5;
-  overflow-x: hidden; /* 가로 스크롤 방지 */
+  overflow-x: hidden;
+  /* 가로 스크롤 방지 */
 }
 
 a {
@@ -64,7 +75,8 @@ a {
   color: inherit;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 
@@ -94,7 +106,8 @@ button {
 
 @media (max-width: 768px) {
   .mobile-only {
-    display: inline; /* 모바일에서 텍스트 <br> 동작하게 함 */
+    display: inline;
+    /* 모바일에서 텍스트 <br> 동작하게 함 */
   }
 }
 
@@ -106,7 +119,8 @@ button {
   align-items: center;
   justify-content: center;
   padding: 12px 24px;
-  border-radius: 999px; /* 완전 둥근 버튼 (알약 모양) */
+  border-radius: 999px;
+  /* 완전 둥근 버튼 (알약 모양) */
   font-weight: 700;
   font-size: 1rem;
   transition: all var(--transition-fast);
@@ -122,7 +136,8 @@ button {
 
 .btn--primary:hover {
   background-color: var(--color-primary-dark);
-  transform: translateY(-2px); /* 클릭 유도를 위한 호버 이동 효과 */
+  transform: translateY(-2px);
+  /* 클릭 유도를 위한 호버 이동 효과 */
   box-shadow: var(--shadow-lg), var(--shadow-glow);
 }
 
@@ -139,6 +154,7 @@ button {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -146,8 +162,15 @@ button {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.98); }
-  to { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .fade-in-up {
@@ -161,7 +184,8 @@ button {
 }
 
 /* JavaScript로 뷰포트에 들어올 때 애니메이션 초기화 용도 */
-.fade-in-up.hidden, .fade-in.hidden {
+.fade-in-up.hidden,
+.fade-in.hidden {
   animation: none !important;
   opacity: 0 !important;
 }
