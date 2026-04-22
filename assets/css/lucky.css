@@ -1,0 +1,382 @@
+/* =========================================
+   Lucky Draw Page Styles (lucky.css)
+   ========================================= */
+
+.lucky-page {
+  padding: 120px 0 100px;
+  background-color: var(--color-bg-base);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden; /* 애니메이션 범위 넘침 방지 */
+}
+
+.lucky__header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* =========================================
+   뽑기 기계 (Gacha Machine) 디자인
+   ========================================= */
+.machine-wrap {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.machine {
+  position: relative;
+  width: 320px;
+  height: 480px;
+  z-index: 10;
+}
+
+/* 투명 볼 영역 */
+.machine__globe {
+  width: 320px;
+  height: 320px;
+  background: rgba(255, 255, 255, 0.45);
+  border: 5px solid var(--color-primary-light);
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: inset -10px -10px 40px rgba(255,255,255,0.8), 
+              0 10px 20px rgba(0,0,0,0.05);
+  overflow: hidden;
+  z-index: 2;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+/* 장식용 캡슐들 */
+.machine__dummy-capsules {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.dummy-capsule {
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: inset -5px -5px 15px rgba(0,0,0,0.1);
+  border: 2px solid rgba(255,255,255,0.4);
+}
+
+/* 기계 하단 베이스 */
+.machine__base {
+  width: 260px;
+  height: 200px;
+  background: linear-gradient(145deg, var(--color-primary-light), #e0caff);
+  position: absolute;
+  bottom: 0;
+  left: 30px;
+  border-radius: 24px 24px 48px 48px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 24px;
+  box-shadow: 0 20px 40px rgba(138,43,226,0.15), 
+              inset 0 4px 10px rgba(255,255,255,0.5);
+  border: 2px solid #fff;
+}
+
+/* 손잡이 (레버) */
+.machine__knob {
+  width: 72px;
+  height: 72px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1), inset 0 -4px 8px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.machine__knob-handle {
+  width: 12px;
+  height: 48px;
+  background: var(--color-primary);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* 손잡이 회전 애니메이션 클래스 */
+.machine__knob.spin {
+  transform: rotate(360deg);
+}
+
+/* 캡슐 나오는 구멍 */
+.machine__hole {
+  width: 90px;
+  height: 45px;
+  background: rgba(0,0,0,0.15);
+  border-radius: 45px 45px 0 0;
+  position: absolute;
+  bottom: 24px;
+  box-shadow: inset 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* =========================================
+   인터랙션용 캡슐 
+   ========================================= */
+.capsule {
+  width: 64px;
+  height: 64px;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  cursor: pointer;
+  display: none; /* 뽑기 전엔 숨김 */
+  opacity: 0;
+  transition: filter 0.3s;
+}
+
+/* 투톤 캡슐 디자인 */
+.capsule__top {
+  width: 100%;
+  height: 50%;
+  background: #ff758c;
+  border-radius: 32px 32px 0 0;
+  border: 2px solid #fff;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.capsule__bottom {
+  width: 100%;
+  height: 50%;
+  background: #ffffff;
+  border-radius: 0 0 32px 32px;
+  border: 2px solid #fff;
+  border-top: none;
+}
+
+/* 떨어지는 애니메이션 */
+@keyframes dropCapsule {
+  0% { top: 60px; transform: translateX(-50%) rotate(0); opacity: 0; }
+  10% { opacity: 1; }
+  60% { top: 490px; transform: translateX(-50%) rotate(360deg); } /* 바닥에 닿음 */
+  75% { top: 430px; transform: translateX(-50%) rotate(420deg); } /* 위로 튕김 */
+  85% { top: 490px; transform: translateX(-50%) rotate(460deg); } /* 다시 바닥 */
+  93% { top: 470px; transform: translateX(-50%) rotate(480deg); } /* 살짝 튕김 */
+  100% { top: 490px; transform: translateX(-50%) rotate(490deg); opacity: 1; } /* 안착 */
+}
+
+.capsule.drop {
+  display: block;
+  animation: dropCapsule 1.2s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+.capsule.drop:hover {
+  filter: brightness(1.1);
+}
+
+/* 캡슐 클릭하여 열리는 애니메이션 */
+@keyframes openCapsule {
+  0% { transform: translateX(-50%) rotate(490deg) scale(1); opacity: 1; }
+  40% { transform: translateX(-50%) rotate(510deg) scale(1.3); opacity: 0.8; }
+  100% { transform: translateX(-50%) rotate(540deg) scale(2.5); opacity: 0; filter: blur(4px); }
+}
+
+.capsule.open {
+  animation: openCapsule 0.5s ease forwards;
+  pointer-events: none;
+}
+
+
+/* =========================================
+   결과 표시 영역
+   ========================================= */
+.lucky-result {
+  margin-top: 60px;
+  padding: 48px 32px;
+  background: #ffffff;
+  border-radius: 32px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  border: 1px solid var(--color-border);
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  display: none; /* 기본 숨김 */
+  animation: resultFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes resultFadeIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.result-label {
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.result-text {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--color-text-main);
+  margin-bottom: 40px;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+
+@media (max-width: 480px) {
+  .machine {
+    transform: scale(0.9);
+  }
+}
+
+/* ====================================================
+   행운 문구 뽑기 페이지 전용 SEO 본문 UI (magazine style)
+   ==================================================== */
+.lucky-seo-section {
+    max-width: 900px;
+    margin: 80px auto 40px;
+    padding: 20px;
+    color: var(--color-text-base);
+    line-height: 1.8;
+}
+
+.lucky-seo-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #edf2f7;
+}
+
+.lucky-seo-header h2 {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--color-primary-dark);
+    margin-bottom: 16px;
+    word-break: keep-all;
+    line-height: 1.4;
+}
+
+.lucky-seo-header p {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+}
+
+.lucky-seo-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    border: 1px solid var(--color-border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lucky-seo-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.06);
+    border-color: rgba(138,43,226,0.3); /* 프라이머리 계열 보라빛 하이라이트 */
+}
+
+.lucky-seo-card h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--color-text-dark);
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px dashed #f1f3f5;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.lucky-seo-content p {
+    margin-bottom: 20px;
+    text-align: justify;
+    word-break: keep-all;
+    font-size: 1.05rem;
+    color: #4a5568;
+}
+
+.lucky-seo-content p:last-child {
+    margin-bottom: 0;
+}
+
+.lucky-seo-content ul, .lucky-seo-content ol {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 20px;
+    margin-top: 20px;
+}
+
+.lucky-seo-content li {
+    font-size: 1.05rem;
+    position: relative;
+    padding-left: 6px;
+    color: #4a5568;
+    line-height: 1.8;
+}
+
+.lucky-seo-content ul li::marker, .lucky-seo-content ol li::marker {
+    color: var(--color-primary);
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.lucky-seo-content strong {
+    color: var(--color-primary-dark);
+    background: rgba(138, 43, 226, 0.05); /* 프라이머리 배경 하이라이팅 */
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-weight: 800;
+}
+
+.lucky-seo-content em, .lucky-seo-content .btn-highlight {
+    font-style: normal;
+    font-weight: 800;
+    color: #ffffff;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    padding: 4px 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(138, 43, 226, 0.2);
+    display: inline-block;
+    margin: 0 4px;
+}
+
+.lucky-seo-content a {
+    color: var(--color-primary);
+    font-weight: 800;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+}
+
+.lucky-seo-content a:hover {
+    color: var(--color-primary-dark);
+}
+
+@media screen and (max-width: 768px) {
+    .lucky-seo-section {
+        margin: 40px auto;
+        padding: 0 16px;
+    }
+    .lucky-seo-header h2 {
+        font-size: 1.45rem;
+    }
+    .lucky-seo-card {
+        padding: 24px;
+        border-radius: 16px;
+    }
+    .lucky-seo-card h3 {
+        font-size: 1.25rem;
+    }
+    .lucky-seo-content p, .lucky-seo-content li {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+}

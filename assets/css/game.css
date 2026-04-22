@@ -1,0 +1,588 @@
+/* ====================================================
+   미니게임 & 결과 오버레이 전용 스타일 (game.css)
+   ==================================================== */
+
+.game-page { 
+    background: var(--color-bg-base); 
+    min-height: 100vh; 
+    padding-top: 100px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    overflow: hidden;
+    position: relative; /* 오버레이 포함을 위해 상대 좌표 설정 */
+}
+
+/* 게임 본체 패널 */
+.game-panel { 
+    background: var(--color-bg-card); 
+    border-radius: 32px; 
+    padding: 40px 24px; 
+    box-shadow: var(--shadow-md); 
+    max-width: 600px; 
+    width: 100%; 
+    text-align: center; 
+    margin: 20px;
+    border: 1px solid var(--color-border);
+}
+.game-panel__header { 
+    margin-bottom: 24px; 
+    padding-bottom: 16px;
+    border-bottom: 2px dashed var(--color-border);
+}
+.game-title { 
+    font-size: 1.75rem; 
+    font-weight: 800; 
+    color: var(--color-primary); 
+    letter-spacing: -0.02em;
+}
+.game-container { 
+    width: 100%; 
+    height: 350px; 
+    background: #fafafa; 
+    border: 2px solid var(--color-border); 
+    border-radius: 20px; 
+    position: relative; 
+    overflow: hidden; 
+    margin: 24px 0; 
+    touch-action: manipulation; 
+    user-select: none;
+}
+.game-actions { 
+    margin-top: 24px; 
+}
+
+/* 클릭 게임 CSS */
+.click-area { 
+    width: 100%; height: 100%; 
+    display: flex; justify-content: center; align-items: center; 
+    font-size: 5rem; font-weight: 800; color: var(--color-primary); 
+    cursor: pointer; transition: background 0.1s, transform 0.1s; 
+}
+.click-area:active { 
+    background: var(--color-primary-light); 
+    transform: scale(0.95); 
+}
+
+/* 타이밍 게임 CSS */
+.timing-target { 
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    height: 100%; width: 50px; background: rgba(138,43,226,0.15); 
+    border-left: 3px dashed var(--color-primary); border-right: 3px dashed var(--color-primary); 
+    box-sizing: border-box;
+}
+.timing-bar { 
+    position: absolute; left: 0; top: 0; 
+    height: 100%; width: 8px; background: #ff758c; 
+    box-shadow: 0 0 15px rgba(255,117,140,0.8); border-radius: 4px; 
+}
+
+/* 블럭 쌓기 게임 CSS */
+.stack-block { 
+    position: absolute; bottom: 0; 
+    height: 35px; background: linear-gradient(90deg, var(--color-primary), var(--color-primary-dark)); 
+    border-radius: 6px; border: 1px solid rgba(255,255,255,0.2); 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: width 0.1s linear;
+}
+
+/* ====================================================
+   게임 결과 모달 오버레이 스타일 (감각적인 카드 디자인)
+   ==================================================== */
+.game-result-overlay {
+    position: fixed; /* 화면 전체를 덮도록 fixed 적용 */
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
+    backdrop-filter: blur(8px); /* 블러 처리로 감성적인 느낌 추가 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.3s ease;
+    padding: 20px;
+}
+.game-result-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* 결과 모달 카드 */
+.game-result-card {
+    background: #ffffff;
+    border-radius: 32px;
+    padding: 48px 32px 40px;
+    width: 100%;
+    max-width: 440px; /* 적당한 가로 폭 */
+    text-align: center;
+    box-shadow: 0 24px 48px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+/* 모달 상단 무지개 느낌 띠 포인트 */
+.game-result-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 12px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+}
+
+.game-result-title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--color-text-dark);
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+}
+
+/* 내용 요소 */
+.game-result-content {
+    margin-bottom: 40px;
+}
+.game-score-icon {
+    font-size: 5rem;
+    margin: 16px 0;
+    display: inline-block;
+    animation: bounce 2s infinite cubic-bezier(0.28, 0.84, 0.42, 1);
+}
+.game-score-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin: 16px 0;
+}
+.game-score-desc {
+    font-size: 1.15rem;
+    color: var(--color-text-base);
+    line-height: 1.6;
+    background: var(--color-bg-base);
+    padding: 16px;
+    border-radius: 16px;
+}
+
+/* 하단 인터랙션 버튼 영역 */
+.game-result-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* 커스텀 버튼 디자인 (hover 시 떠오름) */
+.result-btn {
+    width: 100%;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* 아이콘 텍스트 간격 */
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+.result-btn:hover {
+    transform: translateY(-4px); /* 살짝 떠오르는 효과 */
+}
+.result-btn:active {
+    transform: scale(0.98);
+}
+
+/* Primary 색상: 다시 도전하기 파랑 계열 */
+.result-btn--retry {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(0, 198, 255, 0.4);
+}
+.result-btn--retry:hover {
+    box-shadow: 0 10px 25px rgba(0, 198, 255, 0.5);
+}
+
+/* Secondary 색상: 홈으로 가기 연한 테두리 배경 */
+.result-btn--home {
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    color: var(--color-text-dark);
+}
+.result-btn--home:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    background: #ffffff;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+/* ====================================================
+   무궁화 꽃이 피었습니다 게임 전용 스타일
+   ==================================================== */
+.redlight-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    margin-bottom: 10px;
+}
+.redlight-stage-info {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--color-primary-dark);
+}
+.redlight-sub-status {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--color-text-muted);
+}
+.redlight-progress-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding: 0 10px;
+}
+.redlight-gauge-bg {
+    flex-grow: 1;
+    height: 20px;
+    background: #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+.redlight-gauge-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 10px;
+}
+.redlight-progress-text {
+    font-weight: 800;
+    font-size: 1.2rem;
+    width: 50px;
+    text-align: right;
+    color: var(--color-primary);
+}
+.redlight-arena {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    background: #f0f8ff;
+    border: 2px solid var(--color-border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: background 0.2s, box-shadow 0.2s;
+    user-select: none;
+    touch-action: none;
+}
+.redlight-arena.shake-red {
+    background: #ffe5e5;
+    box-shadow: inset 0 0 30px rgba(255, 0, 0, 0.3);
+    animation: shake 0.4s ease-in-out;
+}
+/* 시작 전 화면 오버레이 카드 */
+.redlight-overlay-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 24px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    text-align: center;
+    z-index: 20;
+    width: 85%;
+    max-width: 320px;
+    backdrop-filter: blur(8px);
+}
+.redlight-overlay-card.hidden {
+    display: none !important;
+}
+.redlight-overlay-title {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--color-text);
+    margin-bottom: 8px;
+}
+.redlight-overlay-desc {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    margin-bottom: 24px;
+}
+.redlight-overlay-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.rl-btn-primary {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(138,43,226,0.3);
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+.rl-btn-primary:active {
+    transform: scale(0.96);
+}
+.rl-btn-secondary {
+    background: #f1f3f5;
+    color: var(--color-text);
+    border: none;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.rl-btn-secondary:active {
+    background: #e9ecef;
+}
+/* 술래 컨테이너 */
+.redlight-goal {
+    position: absolute;
+    right: 5%;
+    bottom: 20px;
+    font-size: 4rem;
+    z-index: 4;
+}
+.redlight-status {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.2rem;
+    font-weight: 900;
+    padding: 8px 30px;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 10;
+    white-space: nowrap;
+    letter-spacing: 2px;
+}
+.status-green {
+    background: #d1e7dd;
+    color: #0f5132;
+    border: 2px solid #badbcc;
+}
+.status-red {
+    background: #f8d7da;
+    color: #842029;
+    border: 2px solid #f5c2c7;
+}
+.redlight-character {
+    position: absolute;
+    left: 2%;
+    bottom: 20px;
+    font-size: 3rem;
+    transition: left 0.1s linear, transform 0.1s;
+    z-index: 5;
+    will-change: left, transform;
+}
+.redlight-char-inner {
+    display: inline-block;
+    transform: scaleX(-1);
+}
+.redlight-footer {
+    margin-top: 16px;
+    font-size: 1rem;
+    color: var(--color-text-muted);
+}
+.redlight-btn-move {
+    margin-top: 5px;
+    width: 80%;
+    height: 54px;
+    border-radius: 27px;
+    font-size: 1.25rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    color: #fff;
+    border: none;
+    box-shadow: 0 4px 15px rgba(138,43,226,0.3);
+    cursor: pointer;
+    touch-action: manipulation;
+}
+.redlight-btn-move:active {
+    transform: scale(0.96);
+    box-shadow: 0 2px 8px rgba(138,43,226,0.3);
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-8px); }
+    50% { transform: translateX(8px); }
+    75% { transform: translateX(-8px); }
+    100% { transform: translateX(0); }
+}
+
+@media (max-width: 480px) {
+    /* 모바일 반응형: 게임 영역과 버튼 크기 최적화 */
+    .game-container {
+        height: 280px; 
+    }
+    .redlight-arena {
+        height: 280px;
+    }
+    .redlight-status {
+        font-size: 1.5rem;
+        top: 10px;
+    }
+    .redlight-goal {
+        font-size: 3.5rem;
+    }
+    .redlight-character {
+        font-size: 3.5rem;
+    }
+    .redlight-btn-move {
+        width: 100%;
+        height: 60px; /* 더 커다란 터치 타겟 */
+        font-size: 1.4rem;
+    }
+}
+
+/* ====================================================
+   개별 게임 플레이 페이지 전용 SEO 본문 UI (magazine style)
+   ==================================================== */
+.game-seo-section {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 20px;
+    color: var(--color-text-base);
+    line-height: 1.8;
+}
+
+.game-seo-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #edf2f7;
+}
+
+.game-seo-header h2 {
+    font-size: 1.7rem;
+    font-weight: 900;
+    color: var(--color-primary-dark);
+    margin-bottom: 16px;
+    word-break: keep-all;
+    line-height: 1.4;
+}
+
+.game-seo-header p {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+}
+
+.game-seo-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    border: 1px solid var(--color-border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-seo-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.06);
+    border-color: var(--color-primary-light);
+}
+
+.game-seo-card h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--color-text-dark);
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px dashed #f1f3f5;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.game-seo-content p {
+    margin-bottom: 20px;
+    text-align: justify;
+    word-break: keep-all;
+    font-size: 1.05rem;
+    color: #4a5568;
+}
+
+.game-seo-content p:last-child {
+    margin-bottom: 0;
+}
+
+.game-seo-content ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 20px;
+    margin-top: 20px;
+}
+
+.game-seo-content li {
+    font-size: 1.05rem;
+    position: relative;
+    padding-left: 6px;
+    color: #4a5568;
+}
+
+.game-seo-content li::marker {
+    color: var(--color-primary);
+    font-size: 1.2em;
+}
+
+.game-seo-content strong {
+    color: var(--color-primary-dark);
+    background: rgba(138, 43, 226, 0.05); /* 프라이머리 컬러 은은한 배경 */
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-weight: 800;
+}
+
+.game-seo-content em {
+    font-style: normal;
+    font-weight: 700;
+    color: #e53e3e; /* 중요도 대비 강렬한 컬러 */
+}
+
+.game-seo-content a {
+    color: var(--color-primary);
+    font-weight: 800;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+}
+
+.game-seo-content a:hover {
+    color: var(--color-primary-dark);
+}
+
+@media screen and (max-width: 768px) {
+    .game-seo-section {
+        margin: 40px auto;
+        padding: 0 16px;
+    }
+    .game-seo-header h2 {
+        font-size: 1.45rem;
+    }
+    .game-seo-card {
+        padding: 24px;
+        border-radius: 16px;
+    }
+    .game-seo-card h3 {
+        font-size: 1.25rem;
+    }
+    .game-seo-content p, .game-seo-content li {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+}

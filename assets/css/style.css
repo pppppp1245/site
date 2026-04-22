@@ -1,0 +1,422 @@
+/* =========================================
+   Header Component
+   ========================================= */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 72px;
+  background: rgba(255, 255, 255, 0.6); /* Glassmorphism 기본 바탕 */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  z-index: 1000;
+  transition: all var(--transition-base);
+}
+
+.header.scrolled {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow-sm);
+}
+
+.header__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 로고 타이포그래피 (그라디언트 텍스트 효과) */
+.header__logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; /* 표준 구문 */
+  letter-spacing: -0.02em;
+}
+
+/* 데스크탑 메뉴 */
+.header__menu {
+  display: flex;
+  gap: 32px;
+}
+
+.header__menu-link {
+  font-weight: 600;
+  color: var(--color-text-main);
+  transition: color var(--transition-fast);
+  position: relative;
+}
+
+/* 호버 시 아래 밑줄 애니메이션 */
+.header__menu-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  transition: width var(--transition-fast);
+  border-radius: 2px;
+}
+
+.header__menu-link:hover {
+  color: var(--color-primary);
+}
+
+.header__menu-link:hover::after {
+  width: 100%;
+}
+
+/* 햄버거 버튼 (기본 숨김 -> 모바일 노출) */
+.header__hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  z-index: 1001; /* 풀스크린 메뉴보다 위로 */
+}
+
+.header__hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-text-main);
+  border-radius: 2px;
+  transition: all var(--transition-fast);
+  transform-origin: left center;
+}
+
+/* =========================================
+   Hero / KV Area Component
+   ========================================= */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 72px; /* 헤더 높이 만큼 보정 */
+  overflow: hidden;
+  text-align: center;
+}
+
+/* 환상적인 그라디언트 및 블러 배경 */
+.hero__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: 
+    radial-gradient(circle at top right, rgba(255, 117, 140, 0.15), transparent 50%),
+    radial-gradient(circle at bottom left, rgba(138, 43, 226, 0.15), transparent 50%),
+    var(--color-bg-base);
+}
+
+/* 배경 뒤에 은은하게 움직이는 펄스 요소 구현 */
+.hero__bg::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(138, 43, 226, 0.08), transparent 60%);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  animation: bgPulse 10s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+  filter: blur(40px);
+}
+
+@keyframes bgPulse {
+  0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.6; }
+  100% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero__title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+  color: var(--color-text-main);
+}
+
+.hero__desc {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: 48px;
+  font-weight: 500;
+}
+
+/* =========================================
+   Tests (Card Grid Layout) Component
+   ========================================= */
+.tests {
+  padding: 120px 0;
+  position: relative;
+  background-color: var(--color-bg-card); /* 흰 배경으로 분리 */
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  margin-top: -40px; /* Hero 영역 위로 살짝 겹침 (최신 트렌드 구조) */
+  box-shadow: 0 -10px 40px rgba(0,0,0,0.03);
+  z-index: 2;
+}
+
+.tests__header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.tests__title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.tests__desc {
+  color: var(--color-text-muted);
+  font-size: 1.125rem;
+}
+
+.tests__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+/* =========================================
+   Test Card UI
+   ========================================= */
+.test-card {
+  background: var(--color-bg-card);
+  border-radius: 28px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 1; /* Before 요소보다 위 레이어 처리 */
+}
+
+/* 호버 시 상단에 얇은 그라데이션 선 애니메이션 */
+.test-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  z-index: 2;
+}
+
+.test-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: transparent;
+}
+
+.test-card:hover::before {
+  opacity: 1;
+}
+
+/* 이모지 아이콘 스타일 */
+.test-card__icon {
+  font-size: 3.5rem;
+  margin-bottom: 24px;
+  background: var(--color-primary-light);
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24px;
+  transition: transform var(--transition-base);
+}
+
+.test-card:hover .test-card__icon {
+  transform: scale(1.1) rotate(-5deg); /* 호버 시 위트있게 튕기는 느낌 */
+}
+
+.test-card__content {
+  flex-grow: 1; /* 버튼을 하단에 고정하기 위해 늘림 */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.test-card__title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: var(--color-text-main);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+.test-card__desc {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+/* 카드의 CTA 버튼 (Full Width) */
+.test-card__btn {
+  width: 100%;
+  padding: 14px 20px;
+  background-color: var(--color-primary-light); /* 연한 컬러 시작 */
+  color: var(--color-primary-dark);
+  font-weight: 700;
+  text-align: center;
+  border-radius: 16px;
+  transition: all var(--transition-fast);
+  margin-top: auto; /* Flex-grow 로 인해 하단 안착 확인 */
+}
+
+.test-card:hover .test-card__btn {
+  background-color: var(--color-primary); /* 호버 시 강한 컬러 */
+  color: white;
+  box-shadow: var(--shadow-md);
+}
+
+/* =========================================
+   Footer Component
+   ========================================= */
+.footer {
+  padding: 40px 0;
+  text-align: center;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+  background: var(--color-bg-base);
+  font-size: 0.9rem;
+}
+
+/* =========================================
+   Responsive Design (미디어 쿼리)
+   ========================================= */
+
+/* 태블릿 구간 (1024px 이하) */
+@media (max-width: 1024px) {
+  .tests__grid {
+    grid-template-columns: repeat(2, 1fr); /* 2열로 변경 */
+  }
+}
+
+/* 모바일 구간 (768px 이하) */
+@media (max-width: 768px) {
+  /* 햄버거 메뉴 디스플레이 활성 */
+  .header__hamburger {
+    display: flex;
+  }
+  
+  /* 모바일 풀스크린 네비게이션 트리거 */
+  .header__nav {
+    position: fixed;
+    top: 72px; /* 헤더 바로 아래 */
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 72px);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    transition: left var(--transition-base);
+    z-index: 999;
+  }
+  
+  .header__nav.is-active {
+    left: 0;
+  }
+
+  .header__menu {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 40px;
+  }
+  
+  .header__menu-link {
+    font-size: 1.75rem;
+    font-weight: 700;
+  }
+  
+  /* 햄버거 버튼 'X' 모양 전환 애니메이션 */
+  .header__hamburger.is-active span:nth-child(1) {
+    transform: rotate(45deg);
+  }
+  .header__hamburger.is-active span:nth-child(2) {
+    opacity: 0;
+  }
+  .header__hamburger.is-active span:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+
+  /* 본문 영역 모바일 스페이싱 */
+  .tests {
+    padding: 80px 0;
+    border-top-left-radius: 32px;
+    border-top-right-radius: 32px;
+  }
+
+  .tests__grid {
+    gap: 20px;
+  }
+
+  .test-card {
+    padding: 24px;
+    border-radius: 20px;
+  }
+  
+  .test-card__icon {
+    width: 64px;
+    height: 64px;
+    font-size: 2.5rem;
+    border-radius: 20px;
+  }
+}
+
+/* 작은 모바일 (480px 이하) */
+@media (max-width: 480px) {
+  .hero {
+    padding-top: 60px; /* 공간 절약 */
+  }
+
+  .hero__title {
+    font-size: 2.25rem;
+  }
+  
+  .tests__title {
+    font-size: 1.75rem;
+  }
+
+  .tests__grid {
+    grid-template-columns: 1fr; /* 1열 (상하 스크롤) */
+  }
+}

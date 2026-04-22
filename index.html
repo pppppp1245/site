@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoodPick - 오늘의 기분으로 나를 알아보세요</title>
+    <!-- SEO 및 접근성 최적화 -->
+    <meta name="description" content="1020세대 필수! 오늘의 기분, 소비 성향, 연애 유형 등 다양하고 재미있는 심리테스트를 제공합니다.">
+
+    <!-- 폰트 로드 -->
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+
+    <link rel="stylesheet" href="./assets/css/common.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- 파비콘 추가 -->
+    <link rel="icon" type="image/x-icon" href="./assets/images/icon/favicon.ico">
+    <link rel="icon" type="image/png" href="./assets/images/icon/favicon.png">
+</head>
+
+<body>
+    <!-- 공통 Header -->
+    <script src="./assets/js/header.js"></script>
+
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero__bg" aria-hidden="true"></div>
+            <div class="hero__content container">
+                <h1 class="hero__title fade-in-up">오늘의 기분으로<br>나를 알아보세요</h1>
+                <p class="hero__desc fade-in-up" style="animation-delay: 0.1s;">간단한 테스트와 감성 콘텐츠로<br class="mobile-only">
+                    나의 취향과 성향을 발견해보세요</p>
+                <div class="hero__actions fade-in-up" style="animation-delay: 0.2s;">
+                    <a href="#tests" class="btn btn--primary btn--large">맞춤 테스트 시작하기 🚀</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 테스트 카드 영역 -->
+        <section class="tests" id="tests">
+            <div class="tests__inner container">
+                <div class="tests__header">
+                    <h2 class="tests__title fade-in">추천하는 감성 테스트 💌</h2>
+                    <p class="tests__desc fade-in">지금 가장 인기 있는, 나를 찾는 특별한 테스트를 골라보세요!</p>
+                </div>
+
+                <div class="tests__grid">
+                    <!-- 카드 1 -->
+                    <a href="test.html?type=mood" class="test-card fade-in" style="animation-delay: 0.1s;">
+                        <div class="test-card__icon" aria-hidden="true">😴</div>
+                        <div class="test-card__content">
+                            <h3 class="test-card__title">오늘의 무드 추천</h3>
+                            <p class="test-card__desc">기분 기반 코디와 찰떡 음악을 추천해드려요.</p>
+                        </div>
+                        <div class="test-card__btn">테스트 시작</div>
+                    </a>
+
+                    <!-- 카드 2 -->
+                    <a href="test.html?type=spend" class="test-card fade-in" style="animation-delay: 0.15s;">
+                        <div class="test-card__icon" aria-hidden="true">💸</div>
+                        <div class="test-card__content">
+                            <h3 class="test-card__title">소비 성향 테스트</h3>
+                            <p class="test-card__desc">FLEX형? 절약형? 감성형? 나의 지갑 상태 알아보기!</p>
+                        </div>
+                        <div class="test-card__btn">테스트 시작</div>
+                    </a>
+
+                    <!-- 카드 3 -->
+                    <a href="test.html?type=first" class="test-card fade-in" style="animation-delay: 0.2s;">
+                        <div class="test-card__icon" aria-hidden="true">👀</div>
+                        <div class="test-card__content">
+                            <h3 class="test-card__title">첫인상 유형 테스트</h3>
+                            <p class="test-card__desc">남들이 보는 1초 컷 나의 이미지는 어떨까?</p>
+                        </div>
+                        <div class="test-card__btn">테스트 시작</div>
+                    </a>
+
+                    <!-- 카드 4 -->
+                    <a href="test.html?type=travel" class="test-card fade-in" style="animation-delay: 0.25s;">
+                        <div class="test-card__icon" aria-hidden="true">✈️</div>
+                        <div class="test-card__content">
+                            <h3 class="test-card__title">여행 스타일 테스트</h3>
+                            <p class="test-card__desc">융통성 제로 파워J 계획형 vs 발길 닿는 대로 즉흥형!</p>
+                        </div>
+                        <div class="test-card__btn">테스트 시작</div>
+                    </a>
+
+                    <!-- 카드 5 -->
+                    <a href="test.html?type=love" class="test-card fade-in" style="animation-delay: 0.3s;">
+                        <div class="test-card__icon" aria-hidden="true">💖</div>
+                        <div class="test-card__content">
+                            <h3 class="test-card__title">연애 유형 테스트</h3>
+                            <p class="test-card__desc">직진남녀부터 철벽, 밀당의 고수까지 나의 연애 타입!</p>
+                        </div>
+                        <div class="test-card__btn">테스트 시작</div>
+                    </a>
+
+                    <!-- 카드 6 -->
+                    <a href="test.html?type=sns" class="test-card fade-in" style="animation-delay: 0.35s;">
+                        <div class="test-card__icon" aria-hidden="true">📱</div>
+                        <div class="test-card__content">
+                            <h3 class="test-card__title">SNS 성향 테스트</h3>
+                            <p class="test-card__desc">나는 인스타 각 재는 기록형일까? 조용한 눈팅형일까?</p>
+                        </div>
+                        <div class="test-card__btn">테스트 시작</div>
+                    </a>
+
+                    <!-- 카드 7 -->
+                    <a href="test.html?type=rest" class="test-card fade-in" style="animation-delay: 0.4s;">
+                        <div class="test-card__icon" aria-hidden="true">🛋️</div>
+                        <div class="test-card__content">
+                            <h3 class="test-card__title">휴식 스타일 테스트</h3>
+                            <p class="test-card__desc">완벽한 주말을 위한 나만의 힐링 충전 방식은?</p>
+                        </div>
+                        <div class="test-card__btn">테스트 시작</div>
+                    </a>
+
+                    <!-- 카드 8 -->
+                    <a href="test.html?type=fan" class="test-card fade-in" style="animation-delay: 0.45s;">
+                        <div class="test-card__icon" aria-hidden="true">🎧</div>
+                        <div class="test-card__content">
+                            <h3 class="test-card__title">덕질 유형 테스트</h3>
+                            <p class="test-card__desc">내 통장을 싹 바치는 올인형 vs 아무도 모르는 숨덕형</p>
+                        </div>
+                        <div class="test-card__btn">테스트 시작</div>
+                    </a>
+
+                    <!-- 카드 9 -->
+                    <a href="test.html?type=drama" class="test-card fade-in" style="animation-delay: 0.5s;">
+                        <div class="test-card__icon" aria-hidden="true">🎬</div>
+                        <div class="test-card__content">
+                            <h3 class="test-card__title">인생 드라마 테스트</h3>
+                            <p class="test-card__desc">내 삶이 드라마라면 어떤 장르일까? (로맨스/막장/성장)</p>
+                        </div>
+                        <div class="test-card__btn">테스트 시작</div>
+                    </a>
+
+                    <!-- 카드 10 -->
+                    <a href="test.html?type=meme" class="test-card fade-in" style="animation-delay: 0.55s;">
+                        <div class="test-card__icon" aria-hidden="true">😂</div>
+                        <div class="test-card__content">
+                            <h3 class="test-card__title">흑역사 생성기</h3>
+                            <p class="test-card__desc">이름만 입력하면 AI가 숨겨진 흑역사를 생성해드려요.</p>
+                        </div>
+                        <div class="test-card__btn">테스트 시작</div>
+                    </a>
+
+                    <!-- 카드 11 (플레이리스트) -->
+                    <a href="test.html?type=playlist" class="test-card fade-in" style="animation-delay: 0.6s;">
+                        <div class="test-card__icon">🎧</div>
+                        <div class="test-card__content">
+                            <h3 class="test-card__title">플레이리스트 감성 테스트</h3>
+                            <p class="test-card__desc">내 기분에 딱 맞는 노래와 음악 성향 분석해보기.</p>
+                        </div>
+                        <div class="test-card__btn">테스트 시작</div>
+                    </a>
+
+                    <!-- 카드 12 (인생 영화 제목) -->
+                    <a href="test.html?type=movie" class="test-card fade-in" style="animation-delay: 0.65s;">
+                        <div class="test-card__icon">🍿</div>
+                        <div class="test-card__content">
+                            <h3 class="test-card__title">인생 영화 제목</h3>
+                            <p class="test-card__desc">내 삶이 영화라면? 나만의 찰떡 영화 제목 생성기.</p>
+                        </div>
+                        <div class="test-card__btn">생성 시작</div>
+                    </a>
+
+                    <!-- 미니게임 1 (클릭 속도) -->
+                    <a href="game.html?type=click" class="test-card fade-in" style="animation-delay: 0.7s;">
+                        <div class="test-card__icon" style="background:#fff3cd;">⚡</div>
+                        <div class="test-card__content">
+                            <h3 class="test-card__title">클릭 속도 테스트</h3>
+                            <p class="test-card__desc">5초 동안 당신은 과연 몇 번이나 화면을 터치할 수 있을까?</p>
+                        </div>
+                        <div class="test-card__btn" style="color:#d39e00; background:rgba(255,243,205,0.7);">미니게임 시작
+                        </div>
+                    </a>
+
+                    <!-- 미니게임 2 (타이밍) -->
+                    <a href="game.html?type=timing" class="test-card fade-in" style="animation-delay: 0.75s;">
+                        <div class="test-card__icon" style="background:#d1e7dd;">🎯</div>
+                        <div class="test-card__content">
+                            <h3 class="test-card__title">타이밍 맞추기</h3>
+                            <p class="test-card__desc">중앙에 정확하게 터치하세요! 숨 막히는 순발력 측정.</p>
+                        </div>
+                        <div class="test-card__btn" style="color:#0f5132; background:rgba(209,231,221,0.7);">미니게임 시작
+                        </div>
+                    </a>
+
+                    <!-- 미니게임 3 (블럭 쌓기) -->
+                    <a href="game.html?type=stack" class="test-card fade-in" style="animation-delay: 0.8s;">
+                        <div class="test-card__icon" style="background:#cff4fc;">🧱</div>
+                        <div class="test-card__content">
+                            <h3 class="test-card__title">블럭 쌓기 게임</h3>
+                            <p class="test-card__desc">좌우로 움직이는 블럭을 아찔하게 꼭대기까지 떨어지지 않게 쌓아보세요!</p>
+                        </div>
+                        <div class="test-card__btn" style="color:#055160; background:rgba(207,244,252,0.7);">미니게임 시작
+                        </div>
+                    </a>
+
+                    <!-- 미니게임 4 (무궁화 꽃) -->
+                    <a href="game.html?type=redlight" class="test-card fade-in" style="animation-delay: 0.85s;">
+                        <div class="test-card__icon" style="background:#e2e3e5;">🌺</div>
+                        <div class="test-card__content">
+                            <h3 class="test-card__title">무궁화 꽃이 피었습니다</h3>
+                            <p class="test-card__desc">타이밍과 눈치를 발휘해 목표 지점까지 도달하세요! 잘못 움직이면 즉시 탈락합니다.</p>
+                        </div>
+                        <div class="test-card__btn" style="color:#41464b; background:rgba(226,227,229,0.7);">미니게임 시작
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="./assets/js/footer.js"></script>
+
+    <!-- 자바스크립트 연결 -->
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>

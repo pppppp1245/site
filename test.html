@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoodPick - 테스트 중</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <link rel="stylesheet" href="./assets/css/common.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <style>
+        .test-page { 
+            background: var(--color-bg-base); 
+            min-height: 100vh; 
+            padding-top: 100px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+        }
+        .test-panel { 
+            background: var(--color-bg-card); 
+            border-radius: 32px; 
+            padding: 48px 32px; 
+            box-shadow: var(--shadow-md); 
+            max-width: 600px; 
+            width: 100%; 
+            text-align: center; 
+            margin: 20px;
+            border: 1px solid var(--color-border);
+        }
+        .test-panel__header { margin-bottom: 24px; border-bottom: 1px solid var(--color-border); padding-bottom: 20px; }
+        .question-num { color: var(--color-primary); font-weight: 800; font-size: 1.5rem; letter-spacing: -0.02em; }
+        .question-text { font-size: 1.75rem; font-weight: 800; margin: 16px 0 40px; word-break: keep-all; line-height: 1.4; letter-spacing: -0.01em;}
+        .options-group { display: flex; flex-direction: column; gap: 16px; }
+        
+        /* 옵션 버튼 인라인 커스텀 스타일 */
+        .option-btn { 
+            width: 100%; 
+            border: 2px solid var(--color-border); 
+            background: transparent; 
+            color: var(--color-text-main); 
+            font-weight: 600; 
+            justify-content: center; 
+            padding: 20px 24px;
+            border-radius: 16px;
+        }
+        .option-btn:hover { 
+            border-color: var(--color-primary); 
+            color: var(--color-primary); 
+            background: var(--color-primary-light); 
+        }
+
+        /* 밈 인풋 스타일 */
+        .meme-input-group { display: flex; flex-direction: column; gap: 16px; margin-top: 20px;}
+        .input-text { 
+            padding: 16px 20px; 
+            border: 2px solid var(--color-border); 
+            border-radius: 16px; 
+            font-size: 1.125rem; 
+            width: 100%; 
+            outline: none; 
+            transition: all var(--transition-fast); 
+            font-family: inherit;
+        }
+        .input-text:focus { 
+            border-color: var(--color-primary); 
+            box-shadow: 0 0 0 4px var(--color-primary-light);
+        }
+    </style>
+    <!-- 파비콘 추가 -->
+    <link rel="icon" type="image/x-icon" href="./assets/images/icon/favicon.ico">
+    <link rel="icon" type="image/png" href="./assets/images/icon/favicon.png">
+</head>
+<body>
+    <script>window.HEADER_SCROLLED = true;</script>
+    <script src="./assets/js/header.js"></script>
+
+    <main class="test-page">
+        <div class="test-panel fade-in">
+            <div class="test-panel__header">
+                <h1 id="test-title" class="tests__title" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0; color: var(--color-text-muted);">테스트 준비 중...</h1>
+            </div>
+            
+            <div id="test-container">
+                <!-- Javascript에서 이곳에 질문과 버튼을 렌더링합니다 -->
+            </div>
+        </div>
+    </main>
+
+    <script src="./assets/js/test.js"></script>
+</body>
+</html>
