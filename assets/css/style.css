@@ -751,3 +751,165 @@
 .seo-accordion-content .seo-accordion-item[open] summary::before {
   opacity: 0.7;
 }
+
+/* 문의 폼 스타일 */
+.contact-form-wrapper {
+  margin-top: 32px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--color-text-base);
+  font-size: 1rem;
+}
+
+.form-group .required {
+  color: var(--color-point);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="url"],
+.form-group select,
+.form-group textarea {
+  padding: 16px;
+  border: 2px solid var(--color-border-light);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background: var(--color-bg-base);
+  color: var(--color-text-base);
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="url"]:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-point);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.form-hint {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.checkbox-group {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--color-point);
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.form-actions .btn {
+  flex: 1;
+}
+
+/* 폼 성공 메시지 */
+.form-success {
+  text-align: center;
+  padding: 48px 24px;
+  background: var(--color-bg-base);
+  border-radius: 16px;
+  border: 2px solid var(--color-border-light);
+}
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 24px;
+  background: var(--color-success);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.form-success h3 {
+  font-size: 1.5rem;
+  color: var(--color-text-base);
+  margin-bottom: 12px;
+}
+
+.form-success p {
+  color: var(--color-text-muted);
+  margin-bottom: 24px;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+  .contact-form {
+    gap: 20px;
+  }
+
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="url"],
+  .form-group select,
+  .form-group textarea {
+    padding: 14px;
+    font-size: 0.95rem;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-success {
+    padding: 32px 16px;
+  }
+
+  .success-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+  }
+
+  .form-success h3 {
+    font-size: 1.25rem;
+  }
+}

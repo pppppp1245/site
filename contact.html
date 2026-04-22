@@ -20,44 +20,100 @@
     <main class="policy-page">
         <section class="policy-card container">
             <h1 class="policy-title">문의하기</h1>
-            <p class="policy-updated">MoodPick 서비스 관련 문의 채널입니다.</p>
+            <p class="policy-updated">MoodPick 서비스 관련 문의를 접수해 주세요.</p>
 
             <div class="policy-section">
                 <h2>문의 접수 안내</h2>
                 <p>
-                    서비스 이용 중 불편사항, 오류 제보, 광고/제휴 문의는 아래 채널로 접수해 주세요.
+                    서비스 이용 중 불편사항, 오류 제보, 광고/제휴 문의는 아래 폼을 통해 접수해 주세요.
                     접수된 문의는 영업일 기준 1~3일 내 순차적으로 답변드립니다.
                 </p>
             </div>
 
-            <div class="contact-grid">
-                <div class="contact-item">
-                    <strong>이메일</strong>
-                    <p>support@moodpick.com</p>
-                </div>
-                <div class="contact-item">
-                    <strong>제휴 문의</strong>
-                    <p>biz@moodpick.com</p>
-                </div>
-                <div class="contact-item">
-                    <strong>운영 시간</strong>
-                    <p>평일 10:00 - 18:00</p>
-                </div>
-            </div>
+            <!-- 문의 폼 -->
+            <div class="contact-form-wrapper">
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <label for="contact-type">문의 유형 <span class="required">*</span></label>
+                        <select id="contact-type" name="type" required>
+                            <option value="">문의 유형을 선택해주세요</option>
+                            <option value="bug">오류/버그 제보</option>
+                            <option value="inquiry">서비스 문의</option>
+                            <option value="partnership">제휴 문의</option>
+                            <option value="ad">광고 문의</option>
+                            <option value="other">기타</option>
+                        </select>
+                    </div>
 
-            <div class="policy-section">
-                <h2>문의 시 포함해 주세요</h2>
-                <ul>
-                    <li>이용한 페이지 주소(URL)</li>
-                    <li>발생한 문제의 상세 내용</li>
-                    <li>기기 및 브라우저 정보(가능한 경우)</li>
-                </ul>
+                    <div class="form-group">
+                        <label for="contact-email">이메일 주소 <span class="required">*</span></label>
+                        <input type="email" id="contact-email" name="email" placeholder="답변 받을 이메일 주소를 입력해주세요" required>
+                        <p class="form-hint">답변을 받을 수 있는 올바른 이메일 주소를 입력해주세요.</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-subject">제목 <span class="required">*</span></label>
+                        <input type="text" id="contact-subject" name="subject" placeholder="문의 제목을 입력해주세요" required maxlength="100">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-content">문의 내용 <span class="required">*</span></label>
+                        <textarea id="contact-content" name="content" rows="8" placeholder="문의 내용을 상세히 입력해주세요" required maxlength="2000"></textarea>
+                        <p class="form-hint">최대 2,000자까지 입력 가능합니다.</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-url">관련 페이지 URL (선택)</label>
+                        <input type="url" id="contact-url" name="url" placeholder="문의와 관련된 페이지 URL을 입력해주세요">
+                        <p class="form-hint">오류 제보 시 해당 페이지 주소를 입력해주시면 빠른 확인이 가능합니다.</p>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="privacy-agree" name="privacy-agree" required>
+                            <span>개인정보처리방침에 동의합니다 <span class="required">*</span></span>
+                        </label>
+                        <p class="form-hint">제공하신 개인정보는 문의 응대 목적으로만 사용되며, 목적 달성 후 지체 없이 파기됩니다.</p>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn--primary btn--large">제출하기</button>
+                    </div>
+                </form>
+
+                <div id="form-success" class="form-success" style="display: none;">
+                    <div class="success-icon">✓</div>
+                    <h3>문의가 접수되었습니다</h3>
+                    <p>영업일 기준 1~3일 내에 답변드리겠습니다.</p>
+                    <button onclick="location.reload()" class="btn btn--primary">새 문의 작성</button>
+                </div>
             </div>
         </section>
     </main>
 
     <script src="./assets/js/footer.js"></script>
     <script src="./assets/js/main.js"></script>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 폼 데이터 수집
+            const formData = {
+                type: document.getElementById('contact-type').value,
+                email: document.getElementById('contact-email').value,
+                subject: document.getElementById('contact-subject').value,
+                content: document.getElementById('contact-content').value,
+                url: document.getElementById('contact-url').value
+            };
+            
+            // 실제 서버로 전송하는 대신 시뮬레이션
+            console.log('문의 접수:', formData);
+            
+            // 폼 숨기고 성공 메시지 표시
+            document.getElementById('contact-form').style.display = 'none';
+            document.getElementById('form-success').style.display = 'block';
+        });
+    </script>
 </body>
 
 </html>
