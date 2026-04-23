@@ -2,26 +2,27 @@
    미니게임 & 결과 오버레이 전용 스타일 (game.css)
    ==================================================== */
 
-.game-page { 
-    background: var(--color-bg-base); 
-    min-height: 100vh; 
-    padding-top: 100px; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    overflow: hidden;
+.game-page {
+    background: var(--color-bg-base);
+    min-height: 100vh;
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: visible;
     position: relative; /* 오버레이 포함을 위해 상대 좌표 설정 */
 }
 
 /* 게임 본체 패널 */
-.game-panel { 
-    background: var(--color-bg-card); 
-    border-radius: 32px; 
-    padding: 40px 24px; 
-    box-shadow: var(--shadow-md); 
-    max-width: 600px; 
-    width: 100%; 
-    text-align: center; 
+.game-panel {
+    background: var(--color-bg-card);
+    border-radius: 32px;
+    padding: 40px 24px;
+    box-shadow: var(--shadow-md);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
     margin: 20px;
     border: 1px solid var(--color-border);
 }
