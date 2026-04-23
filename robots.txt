@@ -1,4 +1,33 @@
+# 네이버 검색엔진
+User-agent: Yeti
+Allow: /
+
+# 구글 검색엔진
+User-agent: Googlebot
+Allow: /
+
+# 빙 검색엔진
+User-agent: Bingbot
+Allow: /
+
+# 야후 검색엔진
+User-agent: Slurp
+Allow: /
+
+# 바이두 검색엔진
+User-agent: Baiduspider
+Allow: /
+
+# 덕덕고 검색엔진
+User-agent: DuckDuckBot
+Allow: /
+
+# 기타 모든 검색엔진
 User-agent: *
 Allow: /
 
+# 크롤링 지연시간 (선택적, 초 단위)
+Crawl-delay: 1
+
+# 사이트맵 지정
 Sitemap: https://moodpick.com/sitemap.xml
