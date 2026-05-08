@@ -248,3 +248,98 @@ button {
   animation: none !important;
   opacity: 0 !important;
 }
+
+/* =========================================
+   Floating Action Button (FAB)
+   ========================================= */
+.fab-contact {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg);
+  z-index: 100;
+  transition: all var(--transition-base);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.fab-contact:hover {
+  transform: scale(1.1) rotate(-5deg);
+  box-shadow: 0 15px 30px rgba(138, 43, 226, 0.4);
+}
+
+.fab-contact__tooltip {
+  position: absolute;
+  right: 80px;
+  background: var(--color-bg-card);
+  color: var(--color-text-main);
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all var(--transition-base);
+  pointer-events: none;
+}
+
+.fab-contact:hover .fab-contact__tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+  .fab-contact {
+    bottom: 120px; /* 모바일 광고 위로 올림 */
+    right: 20px;
+    width: 56px;
+    height: 56px;
+  }
+  .fab-contact__tooltip {
+    display: none; /* 모바일에서는 툴팁 숨김 */
+  }
+}
+
+/* =========================================
+   Contact CTA Section
+   ========================================= */
+.contact-cta {
+  padding: 80px 0;
+  background: var(--color-primary-light);
+  text-align: center;
+}
+
+.contact-cta__inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.contact-cta__title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: var(--color-text-main);
+}
+
+.contact-cta__desc {
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .contact-cta__title {
+    font-size: 1.8rem;
+  }
+}

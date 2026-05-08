@@ -9,4 +9,9 @@ document.write(`
         <p class="footer__copy">&copy; 2026 MoodPick. All rights reserved.</p>
     </div>
 </footer>
+
+<a href="contact.html" class="fab-contact" aria-label="문의하기">
+    <span>✉️</span>
+    <div class="fab-contact__tooltip">궁금한 점이 있으신가요?</div>
+</a>
 `);
