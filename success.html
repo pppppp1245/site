@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoodPick - 문의 완료</title>
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <link rel="stylesheet" href="./assets/css/common.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="icon" type="image/png" href="./assets/images/icon/favicon.png">
+    <style>
+        .success-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-bg-base);
+            padding: 20px;
+        }
+
+        .success-card {
+            max-width: 500px;
+            width: 100%;
+            background: var(--color-bg-card);
+            border-radius: 32px;
+            padding: 60px 40px;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--color-border);
+            animation: slideUp 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .success-icon-wrap {
+            width: 80px;
+            height: 80px;
+            background: var(--color-primary-light);
+            color: var(--color-primary);
+            font-size: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 32px;
+        }
+
+        .success-card h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: var(--color-text-main);
+        }
+
+        .success-card p {
+            color: var(--color-text-muted);
+            line-height: 1.6;
+            margin-bottom: 40px;
+            word-break: keep-all;
+        }
+
+        .success-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        @media (max-width: 480px) {
+            .success-card {
+                padding: 40px 24px;
+            }
+            .success-card h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="success-page">
+        <div class="success-card">
+            <div class="success-icon-wrap">✓</div>
+            <h1>문의가 접수되었습니다</h1>
+            <p>소중한 의견을 남겨주셔서 감사합니다.<br>영업일 기준 1~3일 내에 답변드리겠습니다.</p>
+            <div class="success-actions">
+                <a href="/" class="btn btn--primary btn--large">홈으로 이동</a>
+                <a href="/contact.html" class="btn" style="color: var(--color-text-muted);">추가 문의하기</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="./assets/js/footer.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
