@@ -2,70 +2,122 @@
 <html lang="ko">
 
 <head>
+    <!-- 기본 -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
     <title>MoodPick - 오늘의 기분으로 나를 알아보세요</title>
-    <!-- SEO 및 접근성 최적화 -->
-    <meta name="description" content="1020세대 필수! 오늘의 기분, 소비 성향, 연애 유형 등 다양하고 재미있는 심리테스트를 제공합니다.">
 
-    <!-- Open Graph & Twitter Card -->
+    <meta name="description"
+        content="1020세대 필수! 오늘의 기분, 소비 성향, 연애 유형 등 다양하고 재미있는 심리테스트를 제공합니다.">
+
+    <meta name="keywords"
+        content="심리테스트, 성격테스트, 연애테스트, 소비테스트, MBTI, 심테, MoodPick">
+
+    <meta name="robots" content="index, follow">
+
+    <meta name="author" content="MoodPick">
+
+    <!-- canonical -->
+    <link rel="canonical" href="https://moodpick.kr/">
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://site-moodpick.netlify.app/">
-    <meta property="og:title" content="MoodPick - 오늘의 기분으로 나를 알아보세요">
-    <meta property="og:description" content="1020세대 필수! 오늘의 기분, 소비 성향, 연애 유형 등 다양하고 재미있는 심리테스트를 제공합니다.">
-    <meta property="og:image" content="https://site-moodpick.netlify.app/assets/images/favicon.webp">
-    <meta property="og:image" content="https://site-moodpick.netlify.app/assets/images/Fr.png">
+    <meta property="og:site_name" content="MoodPick">
+    <meta property="og:locale" content="ko_KR">
 
+    <meta property="og:url" content="https://moodpick.kr/">
+
+    <meta property="og:title"
+        content="MoodPick - 오늘의 기분으로 나를 알아보세요">
+
+    <meta property="og:description"
+        content="1020세대 필수! 오늘의 기분, 소비 성향, 연애 유형 등 다양하고 재미있는 심리테스트를 제공합니다.">
+
+    <!-- 대표 썸네일 하나만 유지 -->
+    <meta property="og:image"
+        content="https://moodpick.kr/assets/images/Fr.png">
+
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://site-moodpick.netlify.app/">
-    <meta name="twitter:title" content="MoodPick - 오늘의 기분으로 나를 알아보세요">
-    <meta name="twitter:description" content="1020세대 필수! 오늘의 기분, 소비 성향, 연애 유형 등 다양하고 재미있는 심리테스트를 제공합니다.">
-    <meta name="twitter:image" content="https://site-moodpick.netlify.app/assets/images/favicon.webp">
-    <meta name="twitter:image" content="https://site-moodpick.netlify.app/assets/images/Fr.png">
 
-    <!-- 폰트 로드 -->
-    <link rel="stylesheet" as="style" crossorigin
-        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <meta name="twitter:url" content="https://moodpick.kr/">
 
-    <link rel="stylesheet" href="./assets/css/common.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <!-- 파비콘 추가 -->
-    <link rel="icon" type="image/x-icon" href="./assets/images/icon/favicon.ico">
-    <link rel="icon" type="image/png" href="./assets/images/icon/favicon.png">
-    <meta name="google-site-verification" content="vGftOXd1qfulSkcSWuh6J4PUF_i7B3RMf_k-6RygxGU" />
+    <meta name="twitter:title"
+        content="MoodPick - 오늘의 기분으로 나를 알아보세요">
 
-    <!-- 구조화된 데이터 (JSON-LD) -->
+    <meta name="twitter:description"
+        content="1020세대 필수! 오늘의 기분, 소비 성향, 연애 유형 등 다양하고 재미있는 심리테스트를 제공합니다.">
+
+    <meta name="twitter:image"
+        content="https://moodpick.kr/assets/images/Fr.png">
+
+    <!-- 폰트 최적화 -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+    <link rel="preload"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+        as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+
+    <noscript>
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+    </noscript>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <!-- 파비콘 -->
+    <link rel="icon" type="image/x-icon"
+        href="/assets/images/icon/favicon.ico">
+
+    <link rel="icon" type="image/png"
+        href="/assets/images/icon/favicon.png">
+
+    <link rel="apple-touch-icon"
+        href="/assets/images/icon/favicon.png">
+
+    <!-- 검색엔진 인증 -->
+    <meta name="google-site-verification"
+        content="Ywdp_DHSPEeMpCePIz81l8-pnmuY6drkae6qpuKvCw4">
+
+    <meta name="naver-site-verification"
+        content="9412e4b5f4da30da058b9ef6bca23e01d0db6b93">
+
+    <meta name="msvalidate.01"
+        content="13E1941B63F118BF1E57B95D2C6B0FD9">
+
+    <!-- 구조화 데이터 -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "MoodPick",
-        "url": "https://site-moodpick.netlify.app/",
-        "description": "1020세대 필수! 오늘의 기분, 소비 성향, 연애 유형 등 다양하고 재미있는 심리테스트를 제공합니다.",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://site-moodpick.netlify.app/?q={search_term_string}",
-            "query-input": "required name=search_term_string"
-        }
+        "url": "https://moodpick.kr/",
+        "description": "오늘의 기분으로 나를 알아보는 심리테스트 플랫폼",
+        "inLanguage": "ko-KR"
     }
     </script>
+
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "MoodPick",
-        "url": "https://site-moodpick.netlify.app/",
-        "logo": "https://site-moodpick.netlify.app/assets/images/icon/favicon.png",
-        "description": "오늘의 기분으로 나를 알아보는 심리테스트 플랫폼",
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "contactType": "customer service",
-            "url": "https://site-moodpick.netlify.app/contact.html"
-        }
+        "url": "https://moodpick.kr/",
+        "logo": "https://moodpick.kr/assets/images/icon/favicon.png"
     }
     </script>
-    <meta name="msvalidate.01" content="13E1941B63F118BF1E57B95D2C6B0FD9" />
-    <meta name="naver-site-verification" content="6a91b8f6b5390cbe7cdae36b76475077e85081e8" />
+
 </head>
 
 <body>
