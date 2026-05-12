@@ -2,14 +2,226 @@
 <html lang="ko">
 
 <head>
+    <!-- 기본 -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
     <title>MoodPick - 문의 완료</title>
-    <link rel="stylesheet" as="style" crossorigin
-        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
-    <link rel="stylesheet" href="./assets/css/common.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="icon" type="image/png" href="./assets/images/icon/favicon.png">
+
+    <meta name="description"
+        content="문의가 성공적으로 접수되었습니다. 빠른 시일 내에 답변드리겠습니다.">
+
+    <meta name="keywords"
+        content="문의 완료, 문의 접수, 고객 지원, 무드픽">
+
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="MoodPick">
+
+    <!-- 추가 SEO 최적화 -->
+    <meta name="language" content="Korean">
+    <meta name="geo.region" content="KR">
+    <meta name="geo.country" content="South Korea">
+    <meta name="geo.placename" content="Seoul">
+    <meta name="rating" content="general">
+    <meta name="distribution" content="global">
+    <meta name="revisit-after" content="1 days">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- 구글 추가 최적화 -->
+    <meta name="googlebot"
+        content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="google" content="nositelinkssearchbox">
+
+    <link rel="alternate"
+        hreflang="ko"
+        href="https://moodpick.kr/success.html">
+
+    <link rel="alternate"
+        hreflang="x-default"
+        href="https://moodpick.kr/success.html">
+
+    <!-- canonical -->
+    <link rel="canonical"
+        href="https://moodpick.kr/success.html">
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- 웹앱 최적화 -->
+    <meta name="application-name"
+        content="MoodPick Success">
+
+    <meta name="msapplication-TileColor"
+        content="#8a2be2">
+
+    <meta name="apple-mobile-web-app-capable"
+        content="yes">
+
+    <meta name="apple-mobile-web-app-status-bar-style"
+        content="default">
+
+    <meta name="apple-mobile-web-app-title"
+        content="MoodPick Success">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="MoodPick">
+    <meta property="og:locale" content="ko_KR">
+
+    <meta property="og:url"
+        content="https://moodpick.kr/success.html">
+
+    <meta property="og:title"
+        content="MoodPick - 문의 완료">
+
+    <meta property="og:description"
+        content="문의가 성공적으로 접수되었습니다. 빠른 시일 내에 답변드리겠습니다.">
+
+    <meta property="og:image"
+        content="https://moodpick.kr/assets/images/Fr.png">
+
+    <meta property="og:image:width"
+        content="1200">
+
+    <meta property="og:image:height"
+        content="630">
+
+    <!-- Twitter -->
+    <meta name="twitter:card"
+        content="summary_large_image">
+
+    <meta name="twitter:url"
+        content="https://moodpick.kr/success.html">
+
+    <meta name="twitter:title"
+        content="MoodPick - 문의 완료">
+
+    <meta name="twitter:description"
+        content="문의가 성공적으로 접수되었습니다. 빠른 시일 내에 답변드리겠습니다.">
+
+    <meta name="twitter:image"
+        content="https://moodpick.kr/assets/images/Fr.png">
+
+    <!-- 폰트 최적화 -->
+    <link rel="preconnect"
+        href="https://cdn.jsdelivr.net"
+        crossorigin>
+
+    <link rel="preload"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+        as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+
+    <noscript>
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+    </noscript>
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+        href="/assets/css/common.css">
+
+    <link rel="stylesheet"
+        href="/assets/css/style.css">
+
+    <!-- 파비콘 -->
+    <link rel="icon"
+        type="image/x-icon"
+        href="/assets/images/icon/favicon.ico">
+
+    <link rel="icon"
+        type="image/png"
+        href="/assets/images/icon/favicon.png">
+
+    <link rel="apple-touch-icon"
+        href="/assets/images/icon/favicon.png">
+
+    <!-- 사이트 인증 -->
+    <meta name="google-site-verification"
+        content="Ywdp_DHSPEeMpCePIz81l8-pnmuY6drkae6qpuKvCw4">
+
+    <meta name="naver-site-verification"
+        content="9412e4b5f4da30da058b9ef6bca23e01d0db6b93">
+
+    <meta name="msvalidate.01"
+        content="13E1941B63F118BF1E57B95D2C6B0FD9">
+
+    <!-- 구조화 데이터 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "MoodPick",
+        "url": "https://moodpick.kr/",
+        "description": "오늘의 기분으로 나를 알아보는 심리테스트 플랫폼",
+        "inLanguage": "ko-KR",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://moodpick.kr/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "MoodPick",
+        "url": "https://moodpick.kr/",
+        "logo": "https://moodpick.kr/assets/images/icon/favicon.png",
+        "sameAs": [],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service"
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "MoodPick",
+        "url": "https://moodpick.kr/success.html",
+        "description": "문의가 성공적으로 접수되었습니다. 빠른 시일 내에 답변드리겠습니다.",
+        "applicationCategory": "Entertainment",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "KRW"
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "문의가 접수되면 언제 답변을 받을 수 있나요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "빠른 시일 내에 검토 후 답변드리겠습니다."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "추가로 문의할 내용이 있으면 어떻게 하나요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "문의 페이지를 통해 추가 문의를 접수해주시면 됩니다."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- 페이지 스타일 -->
     <style>
         .success-page {
             min-height: 100vh;
@@ -33,8 +245,15 @@
         }
 
         @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .success-icon-wrap {
@@ -74,6 +293,7 @@
             .success-card {
                 padding: 40px 24px;
             }
+
             .success-card h1 {
                 font-size: 1.5rem;
             }

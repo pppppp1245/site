@@ -2,40 +2,213 @@
 <html lang="ko">
 
 <head>
+    <!-- 기본 -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MoodPick - 당신의 결과는?</title>
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://site-moodpick.netlify.app/result.html">
-    <meta property="og:title" content="MoodPick - 당신의 결과는?">
-    <meta property="og:description" content="MoodPick 테스트 결과를 확인하고 공유해보세요.">
-    <meta property="og:image" content="https://site-moodpick.netlify.app/assets/images/icon/favicon.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://site-moodpick.netlify.app/result.html">
-    <meta name="twitter:title" content="MoodPick - 당신의 결과는?">
-    <meta name="twitter:description" content="MoodPick 테스트 결과를 확인하고 공유해보세요.">
-    <meta name="twitter:image" content="https://site-moodpick.netlify.app/assets/images/icon/favicon.png">
 
-    <!-- 구조화된 데이터 (JSON-LD) -->
+    <!-- SEO -->
+    <title>MoodPick - 당신의 결과는?</title>
+
+    <meta name="description"
+        content="MoodPick 테스트 결과를 확인하고 공유해보세요.">
+
+    <meta name="keywords"
+        content="테스트 결과, 결과 확인, 결과 공유, 무드픽">
+
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="MoodPick">
+
+    <!-- 추가 SEO 최적화 -->
+    <meta name="language" content="Korean">
+    <meta name="geo.region" content="KR">
+    <meta name="geo.country" content="South Korea">
+    <meta name="geo.placename" content="Seoul">
+    <meta name="rating" content="general">
+    <meta name="distribution" content="global">
+    <meta name="revisit-after" content="1 days">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- 구글 추가 최적화 -->
+    <meta name="googlebot"
+        content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="google" content="nositelinkssearchbox">
+
+    <link rel="alternate" hreflang="ko"
+        href="https://moodpick.kr/result.html">
+    <link rel="alternate" hreflang="x-default"
+        href="https://moodpick.kr/result.html">
+
+    <!-- canonical -->
+    <link rel="canonical"
+        href="https://moodpick.kr/result.html">
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- 웹앱 최적화 -->
+    <meta name="application-name" content="MoodPick Result">
+    <meta name="msapplication-TileColor" content="#8a2be2">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style"
+        content="default">
+    <meta name="apple-mobile-web-app-title"
+        content="MoodPick Result">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="MoodPick">
+    <meta property="og:locale" content="ko_KR">
+
+    <meta property="og:url"
+        content="https://moodpick.kr/result.html">
+
+    <meta property="og:title"
+        content="MoodPick - 당신의 결과는?">
+
+    <meta property="og:description"
+        content="MoodPick 테스트 결과를 확인하고 공유해보세요.">
+
+    <meta property="og:image"
+        content="https://moodpick.kr/assets/images/Fr.png">
+
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter -->
+    <meta name="twitter:card"
+        content="summary_large_image">
+
+    <meta name="twitter:url"
+        content="https://moodpick.kr/result.html">
+
+    <meta name="twitter:title"
+        content="MoodPick - 당신의 결과는?">
+
+    <meta name="twitter:description"
+        content="MoodPick 테스트 결과를 확인하고 공유해보세요.">
+
+    <meta name="twitter:image"
+        content="https://moodpick.kr/assets/images/Fr.png">
+
+    <!-- 폰트 최적화 -->
+    <link rel="preconnect"
+        href="https://cdn.jsdelivr.net"
+        crossorigin>
+
+    <link rel="preload"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+        as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+
+    <noscript>
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+    </noscript>
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+        href="/assets/css/common.css">
+
+    <link rel="stylesheet"
+        href="/assets/css/style.css">
+
+    <!-- 파비콘 -->
+    <link rel="icon"
+        type="image/x-icon"
+        href="/assets/images/icon/favicon.ico">
+
+    <link rel="icon"
+        type="image/png"
+        href="/assets/images/icon/favicon.png">
+
+    <link rel="apple-touch-icon"
+        href="/assets/images/icon/favicon.png">
+
+    <!-- 사이트 인증 -->
+    <meta name="google-site-verification"
+        content="Ywdp_DHSPEeMpCePIz81l8-pnmuY6drkae6qpuKvCw4">
+
+    <meta name="naver-site-verification"
+        content="9412e4b5f4da30da058b9ef6bca23e01d0db6b93">
+
+    <meta name="msvalidate.01"
+        content="13E1941B63F118BF1E57B95D2C6B0FD9">
+
+    <!-- 구조화 데이터 -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "WebPage",
-        "name": "MoodPick - 테스트 결과",
-        "description": "MoodPick 테스트 결과를 확인하고 공유해보세요",
-        "url": "https://site-moodpick.netlify.app/result.html",
-        "isPartOf": {
-            "@type": "WebSite",
-            "name": "MoodPick",
-            "url": "https://site-moodpick.netlify.app/"
+        "@type": "WebSite",
+        "name": "MoodPick",
+        "url": "https://moodpick.kr/",
+        "description": "오늘의 기분으로 나를 알아보는 심리테스트 플랫폼",
+        "inLanguage": "ko-KR",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://moodpick.kr/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
         }
     }
     </script>
 
-    <link rel="stylesheet" as="style" crossorigin
-        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
-    <link rel="stylesheet" href="./assets/css/common.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "MoodPick",
+        "url": "https://moodpick.kr/",
+        "logo": "https://moodpick.kr/assets/images/icon/favicon.png",
+        "sameAs": [],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service"
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "MoodPick",
+        "url": "https://moodpick.kr/result.html",
+        "description": "MoodPick 테스트 결과를 확인하고 공유해보세요.",
+        "applicationCategory": "Entertainment",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "KRW"
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "테스트 결과는 어떻게 확인하나요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "테스트 완료 후 즉시 결과 페이지에서 상세한 분석을 확인할 수 있습니다."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "결과를 친구에게 공유할 수 있나요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "네, 결과를 SNS나 메신저를 통해 쉽게 공유할 수 있습니다."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- 페이지 스타일 -->
     <style>
         .result-page {
             background: var(--color-bg-base);
@@ -100,7 +273,6 @@
             justify-content: center;
         }
 
-        /* 버튼 아웃라인 커스텀 (common.css 에 없으므로 추가) */
         .btn--outline-point {
             border: 2px solid var(--color-primary);
             color: var(--color-primary);
@@ -121,12 +293,6 @@
             }
         }
     </style>
-    <!-- 파비콘 추가 -->
-    <link rel="icon" type="image/png" href="./assets/images/icon/favicon.png">
-    <link rel="apple-touch-icon" href="./assets/images/icon/favicon.png">
-    <meta name="google-site-verification" content="vGftOXd1qfulSkcSWuh6J4PUF_i7B3RMf_k-6RygxGU" />
-    <meta name="msvalidate.01" content="13E1941B63F118BF1E57B95D2C6B0FD9" />
-    <meta name="naver-site-verification" content="6a91b8f6b5390cbe7cdae36b76475077e85081e8" />
 </head>
 
 <body>

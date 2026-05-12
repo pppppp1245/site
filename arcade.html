@@ -2,87 +2,179 @@
 <html lang="ko">
 
 <head>
+    <!-- 기본 -->
     <meta charset="UTF-8">
-    <!-- ================== 기본 메타 태그 (SEO) ================== -->
-    <meta name="title" content="MoodPick - 미니 오락관 | 무료 캐주얼 웹게임 모음">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <title>MoodPick - 미니 오락관 | 무료 캐주얼 웹게임 모음</title>
+
     <meta name="description"
         content="다운로드나 설치 없이 언제 어디서나 브라우저에서 즉시 즐길 수 있는 HTML5 미니 게임 종합 오락실. 무궁화 꽃이 피었습니다, 빛의 속도 클릭 반응 테스트 등 중독성 있는 게임을 체험하세요.">
-    <meta name="keywords" content="미니게임, 오락실, 웹게임, 무궁화꽃이피었습니다, 클릭테스트, HTML5게임, 반응속도, 스트레스해소, 타임킬링, 무드픽">
-    <meta name="author" content="MoodPick Team">
+
+    <meta name="keywords"
+        content="미니게임, 오락실, 웹게임, 무궁화꽃이피었습니다, 클릭테스트, HTML5게임, 반응속도, 스트레스해소, 타임킬링, 무드픽">
+
     <meta name="robots" content="index, follow">
 
-        <!-- Open Graph & Twitter Card -->
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="https://site-moodpick.netlify.app/">
-        <meta property="og:title" content="MoodPick - 오늘의 기분으로 나를 알아보세요">
-        <meta property="og:description" content="1020세대 필수! 오늘의 기분, 소비 성향, 연애 유형 등 다양하고 재미있는 심리테스트를 제공합니다.">
-        <meta property="og:image" content="https://site-moodpick.netlify.app/assets/images/favicon.webp">
-        <meta property="og:image" content="https://site-moodpick.netlify.app/assets/images/Fr.png">
-    
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:url" content="https://site-moodpick.netlify.app/">
-        <meta name="twitter:title" content="MoodPick - 오늘의 기분으로 나를 알아보세요">
-        <meta name="twitter:description" content="1020세대 필수! 오늘의 기분, 소비 성향, 연애 유형 등 다양하고 재미있는 심리테스트를 제공합니다.">
-        <meta name="twitter:image" content="https://site-moodpick.netlify.app/assets/images/favicon.webp">
-        <meta name="twitter:image" content="https://site-moodpick.netlify.app/assets/images/Fr.png">
+    <meta name="googlebot"
+        content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 
-    <!-- 구조화된 데이터 (JSON-LD) -->
+    <meta name="author" content="MoodPick">
+
+    <!-- canonical -->
+    <link rel="canonical" href="https://moodpick.kr/arcade.html">
+
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="ko-KR"
+        href="https://moodpick.kr/arcade.html">
+
+    <link rel="alternate" hreflang="x-default"
+        href="https://moodpick.kr/arcade.html">
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="MoodPick">
+    <meta property="og:locale" content="ko_KR">
+
+    <meta property="og:url"
+        content="https://moodpick.kr/arcade.html">
+
+    <meta property="og:title"
+        content="MoodPick - 미니 오락관 | 무료 캐주얼 웹게임 모음">
+
+    <meta property="og:description"
+        content="다운로드나 설치 없이 언제 어디서나 브라우저에서 즉시 즐길 수 있는 HTML5 미니 게임 종합 오락실. 무궁화 꽃이 피었습니다, 빛의 속도 클릭 반응 테스트 등 중독성 있는 게임을 체험하세요.">
+
+    <meta property="og:image"
+        content="https://moodpick.kr/assets/images/arcade-og.jpg">
+
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:url"
+        content="https://moodpick.kr/arcade.html">
+
+    <meta name="twitter:title"
+        content="MoodPick - 미니 오락관 | 무료 캐주얼 웹게임 모음">
+
+    <meta name="twitter:description"
+        content="다운로드나 설치 없이 언제 어디서나 브라우저에서 즉시 즐길 수 있는 HTML5 미니 게임 종합 오락실. 무궁화 꽃이 피었습니다, 빛의 속도 클릭 반응 테스트 등 중독성 있는 게임을 체험하세요.">
+
+    <meta name="twitter:image"
+        content="https://moodpick.kr/assets/images/arcade-og.jpg">
+
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+
+    <!-- 폰트 최적화 -->
+    <link rel="preconnect"
+        href="https://cdn.jsdelivr.net"
+        crossorigin>
+
+    <link rel="preload"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+        as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+
+    <noscript>
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+    </noscript>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/arcade.css">
+
+    <!-- 파비콘 -->
+    <link rel="icon"
+        type="image/x-icon"
+        href="/assets/images/icon/favicon.ico">
+
+    <link rel="icon"
+        type="image/png"
+        href="/assets/images/icon/favicon.png">
+
+    <link rel="apple-touch-icon"
+        href="/assets/images/icon/favicon.png">
+
+    <!-- 검색엔진 인증 -->
+    <meta name="google-site-verification"
+        content="Ywdp_DHSPEeMpCePIz81l8-pnmuY6drkae6qpuKvCw4">
+
+    <meta name="naver-site-verification"
+        content="9412e4b5f4da30da058b9ef6bca23e01d0db6b93">
+
+    <meta name="msvalidate.01"
+        content="13E1941B63F118BF1E57B95D2C6B0FD9">
+
+    <!-- 구조화 데이터 -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "WebPage",
-        "name": "MoodPick - 미니 오락관",
-        "description": "다운로드나 설치 없이 언제 어디서나 브라우저에서 즉시 즐길 수 있는 HTML5 미니 게임 종합 오락실",
-        "url": "https://site-moodpick.netlify.app/arcade.html",
-        "isPartOf": {
-            "@type": "WebSite",
-            "name": "MoodPick",
-            "url": "https://site-moodpick.netlify.app/"
+        "@type": "CollectionPage",
+        "name": "MoodPick 미니 오락관",
+        "url": "https://moodpick.kr/arcade.html",
+        "description": "브라우저에서 즉시 즐길 수 있는 HTML5 미니게임 모음",
+        "inLanguage": "ko-KR"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "MoodPick",
+        "url": "https://moodpick.kr/",
+        "logo": "https://moodpick.kr/assets/images/icon/favicon.png"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "MoodPick Arcade",
+        "url": "https://moodpick.kr/arcade.html",
+        "description": "다운로드 없이 즐기는 HTML5 미니게임 오락실",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "KRW"
         }
     }
     </script>
 
-    <!-- ================== SEO 및 사용자 경험 보완 태그 ================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="language" content="ko">
-    <meta name="distribution" content="global">
-    <meta name="rating" content="general">
-    <meta name="format-detection" content="telephone=no">
-    <link rel="canonical" href="https://www.moodpick.com/arcade.html">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "MoodPick 미니게임 목록",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "무궁화 꽃이 피었습니다"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "빛의 속도 클릭 테스트"
+            }
+        ]
+    }
+    </script>
 
-    <!-- ================== 웹앱 및 브라우저 최적화 ================== -->
-    <meta name="theme-color" content="#f9fafe">
-    <meta name="application-name" content="MoodPick Arcade">
-    <meta name="msapplication-TileColor" content="#8a2be2">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="MoodPick Arcade">
-
-    <title>MoodPick - 미니 오락관 | 무료 캐주얼 웹게임 모음</title>
-
-    <!-- 폰트 다운로드 -->
-    <link rel="stylesheet" as="style" crossorigin
-        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
-
-    <link rel="stylesheet" href="./assets/css/common.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/arcade.css">
-    <style>
-        .arcade-hero .container {
-            text-align: center;
-        }
-
-        .arcade-hero__title,
-        .arcade-hero__desc {
-            margin-left: auto;
-            margin-right: auto;
-        }
-    </style>
-    <!-- 파비콘 추가 -->
-    <link rel="icon" type="image/png" href="./assets/images/icon/favicon.png">
-    <link rel="apple-touch-icon" href="./assets/images/icon/favicon.png">
-    <meta name="google-site-verification" content="vGftOXd1qfulSkcSWuh6J4PUF_i7B3RMf_k-6RygxGU" />
-    <meta name="msvalidate.01" content="13E1941B63F118BF1E57B95D2C6B0FD9" />
-    <meta name="naver-site-verification" content="6a91b8f6b5390cbe7cdae36b76475077e85081e8" />
 </head>
 
 <body>
