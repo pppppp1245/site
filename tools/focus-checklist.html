@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>집중 체크리스트 | 방해 요소 정리 — MoodPick 무드 도구</title>
+    <meta name="description"
+        content="집중 전에 확인하면 좋은 항목을 체크합니다. 완료 상태는 브라우저에 저장됩니다. 미니멀 체크리스트 웹 도구입니다.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://moodpick.kr/tools/focus-checklist.html">
+    <meta property="og:url" content="https://moodpick.kr/tools/focus-checklist.html">
+    <meta property="og:title" content="집중 체크리스트 | MoodPick">
+    <meta property="og:description" content="집중 전 체크리스트. 로컬에 저장됩니다.">
+    <meta property="og:image" content="https://moodpick.kr/assets/images/main-og.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#faf8fc">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preload"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+    </noscript>
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/tools.css">
+    <link rel="icon" href="/assets/images/icon/favicon.ico">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4312822794487424"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <script>window.HEADER_SCROLLED = true;</script>
+    <script src="/assets/js/header.js"></script>
+
+    <main class="policy-page">
+        <section class="policy-card container">
+            <p class="policy-eyebrow">Checklist</p>
+            <h1 class="policy-title">집중 체크리스트</h1>
+            <p class="policy-updated">작업을 시작하기 전에 한 번씩 훑어보세요. 체크한 항목은 이 브라우저에 저장됩니다.</p>
+
+            <div class="tool-widget tool-widget--wide">
+                <ul class="checklist" id="checklist"></ul>
+                <div class="tool-actions" style="margin-top:16px;">
+                    <button type="button" class="btn btn--large" id="btn-all-on" style="border:1px solid var(--color-border);background:#fff;">모두 체크</button>
+                    <button type="button" class="btn btn--large" id="btn-all-off" style="border:1px solid var(--color-border);background:#fff;">모두 해제</button>
+                </div>
+                <p class="tool-note" role="note">
+                    <a href="/tools/focus-timer.html">포커스 타이머</a>와 함께 쓰면 좋습니다.
+                    <a href="/tools/index.html">무드 도구 목록</a>
+                </p>
+            </div>
+
+            <div class="policy-section tool-faq-in-policy">
+                <h2>FAQ</h2>
+                <details>
+                    <summary>항목을 바꿀 수 있나요?</summary>
+                    <p>현재 버전은 기본 항목 고정입니다. 커스텀 항목은 이후 업데이트에서 확장할 수 있습니다.</p>
+                </details>
+            </div>
+
+            <p class="tool-related tool-related--in-card"><a href="/tools/index.html">← 무드 도구 목록</a></p>
+        </section>
+    </main>
+
+    <script src="/assets/js/footer.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script>
+(function () {
+    var items = [
+        '휴대폰 무음 또는 집중 모드',
+        '불필요한 탭·알림 닫기',
+        '물 한 잔 준비',
+        '다음 할 일을 한 문장으로 적기',
+        '의자·화면 높이 가볍게 조정',
+        '주변 정리 1분',
+        '집중 목표 시간 정하기'
+    ];
+    var KEY = 'moodpick_focus_check_v1';
+
+    function loadState() {
+        try {
+            var raw = localStorage.getItem(KEY);
+            if (raw) return JSON.parse(raw);
+        } catch (e) {}
+        return items.map(function () { return false; });
+    }
+
+    function saveState(arr) {
+        try { localStorage.setItem(KEY, JSON.stringify(arr)); } catch (e) {}
+    }
+
+    var state = loadState();
+    if (state.length !== items.length) {
+        state = items.map(function () { return false; });
+    }
+
+    var ul = document.getElementById('checklist');
+
+    function render() {
+        ul.innerHTML = '';
+        items.forEach(function (text, i) {
+            var li = document.createElement('li');
+            if (state[i]) li.classList.add('is-done');
+            var cb = document.createElement('input');
+            cb.type = 'checkbox';
+            cb.id = 'ck-' + i;
+            cb.checked = !!state[i];
+            cb.addEventListener('change', function () {
+                state[i] = cb.checked;
+                li.classList.toggle('is-done', cb.checked);
+                saveState(state);
+            });
+            var lab = document.createElement('label');
+            lab.htmlFor = 'ck-' + i;
+            lab.textContent = text;
+            li.appendChild(cb);
+            li.appendChild(lab);
+            ul.appendChild(li);
+        });
+    }
+
+    document.getElementById('btn-all-on').addEventListener('click', function () {
+        state = items.map(function () { return true; });
+        saveState(state);
+        render();
+    });
+    document.getElementById('btn-all-off').addEventListener('click', function () {
+        state = items.map(function () { return false; });
+        saveState(state);
+        render();
+    });
+
+    render();
+})();
+    </script>
+    <script src="//wcs.pstatic.net/wcslog.js"></script>
+    <script>
+        if (!window.wcs_add) window.wcs_add = {};
+        window.wcs_add["wa"] = "1c927f4cd89e390";
+        if (window.wcs) wcs_do();
+    </script>
+</body>
+
+</html>

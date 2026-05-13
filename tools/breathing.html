@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>박스 호흡 가이드 | 리듬 호흡 — MoodPick 무드 도구</title>
+    <meta name="description"
+        content="4초 단위 박스 호흡을 시각 링으로 안내합니다. 들이마시기·참기·내쉬기·참기 리듬을 브라우저에서 따라 할 수 있습니다. 참고용 휴식 도구입니다.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://moodpick.kr/tools/breathing.html">
+    <meta name="theme-color" content="#faf8fc">
+    <meta property="og:url" content="https://moodpick.kr/tools/breathing.html">
+    <meta property="og:title" content="박스 호흡 가이드 | MoodPick">
+    <meta property="og:description" content="시각 링으로 따라 하는 박스 호흡. 참고용 휴식 도구입니다.">
+    <meta property="og:image" content="https://moodpick.kr/assets/images/main-og.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preload"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+    </noscript>
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/tools.css">
+    <link rel="icon" href="/assets/images/icon/favicon.ico">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4312822794487424"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <script>window.HEADER_SCROLLED = true;</script>
+    <script src="/assets/js/header.js"></script>
+
+    <main class="policy-page">
+        <section class="policy-card container">
+            <p class="policy-eyebrow">Breathe</p>
+            <h1 class="policy-title">박스 호흡 가이드</h1>
+            <p class="policy-updated">네 박자로 호흡 길이를 맞춥니다. 링이 커질 때 들이마시고, 작아질 때 천천히 내쉬어 보세요.</p>
+
+            <div class="tool-widget tool-widget--wide">
+                <span class="tool-label">한 박자 길이</span>
+                <div class="tool-row" id="sec-row">
+                    <button type="button" class="tool-chip" data-sec="3">3초</button>
+                    <button type="button" class="tool-chip is-active" data-sec="4">4초</button>
+                    <button type="button" class="tool-chip" data-sec="5">5초</button>
+                </div>
+
+                <p class="breath-stage" id="breath-label">준비</p>
+                <div class="breath-ring-wrap">
+                    <div class="breath-ring is-shrink" id="breath-ring" aria-hidden="true">
+                        <span id="breath-count" style="font-size:2.25rem;font-weight:800;font-variant-numeric:tabular-nums;color:var(--color-text-main);">—</span>
+                    </div>
+                </div>
+
+                <div class="tool-actions">
+                    <button type="button" class="btn btn--primary btn--large" id="btn-b-start">시작</button>
+                    <button type="button" class="btn btn--large" id="btn-b-stop" style="border:1px solid var(--color-border);background:#fff;">정지</button>
+                </div>
+
+                <p class="tool-note" role="note">
+                    호흡이 불편하거나 어지러움이 있으면 즉시 중단하세요. 이 페이지는 치료·진단 목적이 아닙니다.
+                    <a href="/tools/index.html">무드 도구 목록</a>
+                </p>
+            </div>
+
+            <div class="policy-section tool-faq-in-policy">
+                <h2>안내</h2>
+                <details>
+                    <summary>박스 호흡이란?</summary>
+                    <p>들이마시기·숨 참기·내쉬기·숨 참기를 같은 길이로 반복하는 호흡 패턴입니다. 긴장 완화에 도움이 될 수 있으나 개인차가 큽니다.</p>
+                </details>
+                <details>
+                    <summary>언제 사용하면 좋나요?</summary>
+                    <p>짧은 휴식, 수업·회의 사이, 잠들기 전 등 본인의 컨디션에 맞게 가볍게 시도해 보세요.</p>
+                </details>
+            </div>
+
+            <p class="tool-related tool-related--in-card">
+                <a href="/tools/index.html">← 무드 도구 목록</a>
+            </p>
+        </section>
+    </main>
+
+    <script src="/assets/js/footer.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script>
+(function () {
+    var secPer = 4;
+    var ring = document.getElementById('breath-ring');
+    var labelEl = document.getElementById('breath-label');
+    var countEl = document.getElementById('breath-count');
+    var running = false;
+    var abort = false;
+    var labels = ['천천히 들이마시기', '숨 참기', '천천히 내쉬기', '숨 참기'];
+
+    document.getElementById('sec-row').addEventListener('click', function (e) {
+        var b = e.target.closest('.tool-chip');
+        if (!b) return;
+        document.querySelectorAll('#sec-row .tool-chip').forEach(function (x) { x.classList.remove('is-active'); });
+        b.classList.add('is-active');
+        secPer = parseInt(b.dataset.sec, 10) || 4;
+    });
+
+    function setRingTransition(s) {
+        ring.style.transition = 'transform ' + s + 's cubic-bezier(0.45, 0, 0.55, 1)';
+    }
+
+    function wait(ms) {
+        return new Promise(function (resolve) { setTimeout(resolve, ms); });
+    }
+
+    async function runLoop() {
+        abort = false;
+        running = true;
+        while (running && !abort) {
+            labelEl.textContent = labels[0];
+            setRingTransition(secPer);
+            ring.classList.remove('is-shrink');
+            for (var i = secPer; i >= 1 && running && !abort; i--) {
+                countEl.textContent = String(i);
+                await wait(1000);
+            }
+            if (!running || abort) break;
+
+            labelEl.textContent = labels[1];
+            setRingTransition(0);
+            for (var h1 = secPer; h1 >= 1 && running && !abort; h1--) {
+                countEl.textContent = String(h1);
+                await wait(1000);
+            }
+            if (!running || abort) break;
+
+            labelEl.textContent = labels[2];
+            setRingTransition(secPer);
+            ring.classList.add('is-shrink');
+            for (var j = secPer; j >= 1 && running && !abort; j--) {
+                countEl.textContent = String(j);
+                await wait(1000);
+            }
+            if (!running || abort) break;
+
+            labelEl.textContent = labels[3];
+            setRingTransition(0);
+            for (var h2 = secPer; h2 >= 1 && running && !abort; h2--) {
+                countEl.textContent = String(h2);
+                await wait(1000);
+            }
+        }
+        labelEl.textContent = '준비';
+        countEl.textContent = '—';
+        running = false;
+    }
+
+    document.getElementById('btn-b-start').addEventListener('click', function () {
+        if (running) return;
+        abort = false;
+        ring.classList.add('is-shrink');
+        setRingTransition(0);
+        runLoop();
+    });
+
+    document.getElementById('btn-b-stop').addEventListener('click', function () {
+        running = false;
+        abort = true;
+        setRingTransition(0.3);
+        ring.classList.add('is-shrink');
+        labelEl.textContent = '준비';
+        countEl.textContent = '—';
+    });
+})();
+    </script>
+    <script src="//wcs.pstatic.net/wcslog.js"></script>
+    <script>
+        if (!window.wcs_add) window.wcs_add = {};
+        window.wcs_add["wa"] = "1c927f4cd89e390";
+        if (window.wcs) wcs_do();
+    </script>
+</body>
+
+</html>

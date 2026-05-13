@@ -26,43 +26,88 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* =========================================
-       2. 모바일 햄버거 메뉴 기능
+       2. 헤더 서브메뉴 (데스크탑 드롭다운 · 모바일 아코디언)
+       ========================================= */
+    function closeAllSubnavs() {
+        document.querySelectorAll('.header__menu-group').forEach((group) => {
+            group.classList.remove('is-open');
+            const trigger = group.querySelector('.header__menu-trigger');
+            const sub = group.querySelector('.header__subnav');
+            if (trigger) trigger.setAttribute('aria-expanded', 'false');
+            if (sub) sub.setAttribute('hidden', '');
+        });
+    }
+
+    document.querySelectorAll('.header__menu-trigger').forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const group = btn.closest('.header__menu-group');
+            const sub = document.getElementById(btn.getAttribute('aria-controls'));
+            if (!group || !sub) return;
+
+            const opening = !group.classList.contains('is-open');
+            document.querySelectorAll('.header__menu-group').forEach((g) => {
+                g.classList.remove('is-open');
+                const t = g.querySelector('.header__menu-trigger');
+                const s = g.querySelector('.header__subnav');
+                if (t) t.setAttribute('aria-expanded', 'false');
+                if (s) s.setAttribute('hidden', '');
+            });
+
+            if (opening) {
+                group.classList.add('is-open');
+                btn.setAttribute('aria-expanded', 'true');
+                sub.removeAttribute('hidden');
+            }
+        });
+    });
+
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('.header__menu-group')) return;
+        closeAllSubnavs();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeAllSubnavs();
+    });
+
+    /* =========================================
+       3. 모바일 햄버거 메뉴 기능
        ========================================= */
     const hamburger = document.querySelector('.header__hamburger');
     const nav = document.querySelector('.header__nav');
     
     if (hamburger && nav) {
-        hamburger.addEventListener('click', () => {
-            // 클래스 토글을 통한 애니메이션 제어
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
             const isActive = hamburger.classList.toggle('is-active');
             nav.classList.toggle('is-active');
             
-            // 웹 접근성 속성 업데이트
             hamburger.setAttribute('aria-expanded', isActive);
 
-            // 메뉴 활성화 중에는 body 스크롤 금지 처리
             if (isActive) {
                 document.body.style.overflow = 'hidden';
             } else {
                 document.body.style.overflow = '';
+                closeAllSubnavs();
             }
         });
 
-        // 링크 클릭 시 자동으로 닫힘 처리
-        const menuLinks = nav.querySelectorAll('.header__menu-link');
+        const menuLinks = nav.querySelectorAll('.header__menu-link, .header__subnav a');
         menuLinks.forEach(link => {
             link.addEventListener('click', () => {
+                closeAllSubnavs();
                 hamburger.classList.remove('is-active');
                 nav.classList.remove('is-active');
                 hamburger.setAttribute('aria-expanded', 'false');
-                document.body.style.overflow = ''; // 스크롤 원복
+                document.body.style.overflow = '';
             });
         });
     }
 
 
     /* =========================================
-       3. 스크롤 위치 기반 Fade-in 애니메이션 (Observer)
+       4. 스크롤 위치 기반 Fade-in 애니메이션 (Observer)
        ========================================= */
     // 최신식 IntersectionObserver 를 사용하여 성능 최적화
     const observerOptions = {

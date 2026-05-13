@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마이크로 스트레칭 | 짧은 휴식 동작 — MoodPick 무드 도구</title>
+    <meta name="description"
+        content="목·어깨·손목 등 짧은 스트레칭 단계를 순서대로 안내합니다. 단계별 타이머가 있으며, 일상 휴식 참고용이며 의료 행위가 아닙니다.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://moodpick.kr/tools/micro-stretch.html">
+    <meta property="og:url" content="https://moodpick.kr/tools/micro-stretch.html">
+    <meta property="og:title" content="마이크로 스트레칭 | MoodPick">
+    <meta property="og:description" content="짧은 휴식용 스트레칭 단계 안내. 참고용입니다.">
+    <meta property="og:image" content="https://moodpick.kr/assets/images/main-og.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#faf8fc">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preload"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+    </noscript>
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/tools.css">
+    <link rel="icon" href="/assets/images/icon/favicon.ico">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4312822794487424"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <script>window.HEADER_SCROLLED = true;</script>
+    <script src="/assets/js/header.js"></script>
+
+    <main class="policy-page">
+        <section class="policy-card container">
+            <p class="policy-eyebrow">Stretch</p>
+            <h1 class="policy-title">마이크로 스트레칭</h1>
+            <p class="policy-updated">앉은 자리에서도 할 수 있는 짧은 동작을 순서대로 안내합니다. 통증이 있으면 하지 마세요.</p>
+
+            <div class="tool-widget tool-widget--wide">
+                <div class="stretch-progress" aria-hidden="true">
+                    <div class="stretch-progress__bar" id="stretch-bar" style="width:20%;"></div>
+                </div>
+                <div class="stretch-step">
+                    <p class="tool-sub" id="stretch-step-num" style="margin-bottom:8px;">1 / 5</p>
+                    <h2 class="stretch-step__title" id="stretch-title">목 옆으로 천천히 기울이기</h2>
+                    <p class="stretch-step__body" id="stretch-body">귀가 어깨 쪽으로 가까워지도록 천천히 기울였다가 반대로 바꿉니다. 호흡을 멈추지 마세요.</p>
+                    <div class="tool-display" id="stretch-sec" style="font-size:2.5rem;margin:12px 0;">30</div>
+                    <p class="tool-sub" id="stretch-hint">이 단계를 마칠 때까지 타이머</p>
+                </div>
+                <div class="tool-actions">
+                    <button type="button" class="btn btn--primary btn--large" id="btn-st-next">다음 단계</button>
+                    <button type="button" class="btn btn--large" id="btn-st-reset" style="border:1px solid var(--color-border);background:#fff;">처음부터</button>
+                </div>
+                <p class="tool-note" role="note">
+                    본 콘텐츠는 <strong>일상적인 휴식 참고용</strong>이며, 부상·통증이 있는 경우 전문의와 상담하세요.
+                    <a href="/tools/index.html">무드 도구 목록</a>
+                </p>
+            </div>
+
+            <div class="policy-section tool-faq-in-policy">
+                <h2>주의</h2>
+                <details>
+                    <summary>운동 대신해도 되나요?</summary>
+                    <p>아니요. 근력·유연성 향상을 목적으로 한 운동 프로그램이 아닙니다. 가볍게 몸을 풀 때만 활용하세요.</p>
+                </details>
+            </div>
+
+            <p class="tool-related tool-related--in-card"><a href="/tools/index.html">← 무드 도구 목록</a></p>
+        </section>
+    </main>
+
+    <script src="/assets/js/footer.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script>
+(function () {
+    var steps = [
+        { title: '목 옆으로 천천히 기울이기', body: '귀가 어깨 쪽으로 가까워지도록 천천히 기울였다가 반대로 바꿉니다. 통증이 있으면 중단하세요.', sec: 30 },
+        { title: '어깨 돌리기', body: '어깨를 귀 쪽으로 올렸다가 뒤로 크게 돌려 내립니다. 천천히 반복합니다.', sec: 30 },
+        { title: '팔 뒤로 깍지 끼기', body: '양손 깍지를 등 뒤에서 가볍게 밀어 가슴이 열리도록 합니다. 무리한 범위는 피합니다.', sec: 30 },
+        { title: '손목·손가락 풀기', body: '손목을 부드럽게 돌리고 손가락을 펼쳤다 오므립니다. 타이핑이 많은 날에 특히 가볍게.', sec: 30 },
+        { title: '깊게 앉아 허리 세우기', body: '등받이에 닿지 않게 앉아 척추를 길게 세웁니다. 복부에 손을 얹고 호흡만 느껴 봅니다.', sec: 30 }
+    ];
+    var idx = 0;
+    var remain = steps[0].sec;
+    var timer = null;
+
+    var elNum = document.getElementById('stretch-step-num');
+    var elTitle = document.getElementById('stretch-title');
+    var elBody = document.getElementById('stretch-body');
+    var elSec = document.getElementById('stretch-sec');
+    var elBar = document.getElementById('stretch-bar');
+
+    function showStep() {
+        var s = steps[idx];
+        elNum.textContent = (idx + 1) + ' / ' + steps.length;
+        elTitle.textContent = s.title;
+        elBody.textContent = s.body;
+        remain = s.sec;
+        elSec.textContent = String(remain);
+        elBar.style.width = ((idx + 1) / steps.length * 100) + '%';
+    }
+
+    function clearT() {
+        if (timer) {
+            clearInterval(timer);
+            timer = null;
+        }
+    }
+
+    function startTick() {
+        clearT();
+        timer = setInterval(function () {
+            remain--;
+            if (remain <= 0) {
+                remain = 0;
+                elSec.textContent = '0';
+                clearT();
+                return;
+            }
+            elSec.textContent = String(remain);
+        }, 1000);
+    }
+
+    document.getElementById('btn-st-next').addEventListener('click', function () {
+        clearT();
+        if (idx < steps.length - 1) {
+            idx++;
+        } else {
+            idx = 0;
+        }
+        showStep();
+        startTick();
+    });
+
+    document.getElementById('btn-st-reset').addEventListener('click', function () {
+        clearT();
+        idx = 0;
+        showStep();
+        startTick();
+    });
+
+    showStep();
+    startTick();
+})();
+    </script>
+    <script src="//wcs.pstatic.net/wcslog.js"></script>
+    <script>
+        if (!window.wcs_add) window.wcs_add = {};
+        window.wcs_add["wa"] = "1c927f4cd89e390";
+        if (window.wcs) wcs_do();
+    </script>
+</body>
+
+</html>

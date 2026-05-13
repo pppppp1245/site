@@ -1,0 +1,385 @@
+/* MoodPick — 무드 도구 (policy / tests 레이아웃과 정렬) */
+
+.tests--tools {
+  padding: 100px 0 56px;
+  background: var(--color-bg-card);
+  margin-top: 0;
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.04);
+}
+
+.tests--tools .tests__header {
+  text-align: center;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tests--tools .policy-eyebrow {
+  margin-bottom: 14px;
+}
+
+.tools-faq-card {
+  margin-top: 24px;
+  margin-bottom: 56px;
+}
+
+.tool-widget {
+  background: var(--color-bg-base);
+  border: 1px solid var(--color-border);
+  border-radius: 22px;
+  padding: 28px 22px 30px;
+  margin-bottom: 8px;
+}
+
+.tool-widget--timer {
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tool-widget--wide {
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tool-faq-in-policy details {
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 14px 18px;
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.tool-faq-in-policy summary {
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+}
+
+.tool-faq-in-policy summary::-webkit-details-marker {
+  display: none;
+}
+
+.tool-faq-in-policy details[open] summary {
+  margin-bottom: 8px;
+  color: var(--color-primary-dark);
+}
+
+.tool-faq-in-policy p {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  word-break: keep-all;
+}
+
+.tool-related--in-card {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.tool-label {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-bottom: 8px;
+}
+
+.tool-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tool-chip {
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-base);
+  color: var(--color-text-main);
+  transition: background var(--transition-fast), border-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.tool-chip:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+
+.tool-chip.is-active {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.tool-display {
+  font-variant-numeric: tabular-nums;
+  font-size: clamp(3rem, 12vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  text-align: center;
+  line-height: 1;
+  margin: 24px 0 8px;
+  color: var(--color-text-main);
+}
+
+.tool-sub {
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  min-height: 1.5em;
+  margin-bottom: 24px;
+}
+
+.tool-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.tool-actions .btn {
+  min-width: 120px;
+}
+
+.tool-note {
+  margin-top: 24px;
+  padding: 14px 16px;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  background: var(--color-bg-base);
+  border-radius: 14px;
+  border: 1px solid var(--color-border);
+  word-break: keep-all;
+}
+
+.tool-note a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+/* 호흡 링 */
+.breath-stage {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin-bottom: 16px;
+  min-height: 1.4em;
+}
+
+.breath-ring-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 220px;
+  margin: 8px 0 24px;
+}
+
+.breath-ring {
+  width: min(200px, 55vw);
+  height: min(200px, 55vw);
+  border-radius: 50%;
+  background: linear-gradient(145deg, var(--color-primary-light), #fff);
+  border: 2px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 4s cubic-bezier(0.45, 0, 0.55, 1);
+  will-change: transform;
+}
+
+.breath-ring.is-shrink {
+  transform: scale(0.72);
+}
+
+/* 저널 */
+.journal-prompt {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  margin-bottom: 16px;
+  padding: 14px 16px;
+  background: var(--color-primary-light);
+  border-radius: 16px;
+  word-break: keep-all;
+}
+
+.journal-field {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--color-border);
+  font-family: inherit;
+  font-size: 0.95rem;
+  resize: vertical;
+  min-height: 52px;
+  transition: border-color var(--transition-fast);
+}
+
+.journal-field:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+/* 컬러 무드 */
+.mood-swatch-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.mood-swatch {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.mood-swatch:hover {
+  transform: scale(1.08);
+}
+
+.mood-swatch.is-picked {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.color-input-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.color-input-row input[type="color"] {
+  width: 56px;
+  height: 56px;
+  border: none;
+  padding: 0;
+  border-radius: 16px;
+  cursor: pointer;
+  background: transparent;
+}
+
+/* 스트레칭 스텝 */
+.stretch-step {
+  text-align: center;
+  padding: 20px 8px;
+}
+
+.stretch-step__title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.stretch-step__body {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  word-break: keep-all;
+  margin-bottom: 20px;
+}
+
+.stretch-progress {
+  height: 4px;
+  background: var(--color-border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.stretch-progress__bar {
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+/* 체크리스트 */
+.checklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.95rem;
+}
+
+.checklist li:last-child {
+  border-bottom: none;
+}
+
+.checklist input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.checklist label {
+  cursor: pointer;
+  flex: 1;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+
+.checklist li.is-done label {
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+}
+
+.tool-related {
+  max-width: 640px;
+  margin: 32px auto 0;
+  padding: 20px var(--container-padding);
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.tool-related a {
+  color: var(--color-primary);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .tests--tools {
+    padding: 88px 0 48px;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+  }
+
+  .tools-faq-card {
+    margin-bottom: 100px;
+  }
+}
+

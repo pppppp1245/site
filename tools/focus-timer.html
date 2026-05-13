@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포커스 타이머 | 뽀모도로·집중 시간 — MoodPick 무드 도구</title>
+    <meta name="description"
+        content="25분 집중·5분 휴식 등 프리셋과 사용자 지정 시간을 지원하는 웹 포커스 타이머입니다. 일시정지·리셋, 기기 로컬에 오늘 완료 횟수를 저장합니다.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://moodpick.kr/tools/focus-timer.html">
+    <meta name="theme-color" content="#faf8fc">
+    <meta property="og:url" content="https://moodpick.kr/tools/focus-timer.html">
+    <meta property="og:title" content="포커스 타이머 | MoodPick">
+    <meta property="og:description" content="웹에서 바로 쓰는 미니멀 집중 타이머. 프리셋과 커스텀 시간을 지원합니다.">
+    <meta property="og:image" content="https://moodpick.kr/assets/images/main-og.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preload"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+    </noscript>
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/tools.css">
+    <link rel="icon" href="/assets/images/icon/favicon.ico">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4312822794487424"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <script>window.HEADER_SCROLLED = true;</script>
+    <script src="/assets/js/header.js"></script>
+
+    <main class="policy-page">
+        <section class="policy-card container">
+            <p class="policy-eyebrow">Focus</p>
+            <h1 class="policy-title">포커스 타이머</h1>
+            <p class="policy-updated">한 세션에 집중할 시간만 고르고 시작하세요. 뽀모도로 스타일 프리셋과 직접 입력 시간을 지원합니다.</p>
+
+            <div class="tool-widget tool-widget--timer">
+                <span class="tool-label">프리셋</span>
+                <div class="tool-row" id="preset-row">
+                    <button type="button" class="tool-chip is-active" data-sec="1500">25 · 5</button>
+                    <button type="button" class="tool-chip" data-sec="900">15분</button>
+                    <button type="button" class="tool-chip" data-sec="2700">45분</button>
+                    <button type="button" class="tool-chip" data-sec="3600">60분</button>
+                </div>
+                <span class="tool-label">직접 입력 (분)</span>
+                <div class="tool-row">
+                    <input type="number" id="custom-min" class="journal-field" min="1" max="180" value="30"
+                        style="max-width:120px;text-align:center;" aria-label="집중 시간 분">
+                </div>
+                <button type="button" class="btn btn--primary btn--large" id="apply-custom" style="width:100%;">이 시간으로 적용</button>
+
+                <div class="tool-display" id="display" aria-live="polite">25:00</div>
+                <p class="tool-sub" id="phase-label">집중 세션</p>
+
+                <div class="tool-actions">
+                    <button type="button" class="btn btn--primary btn--large" id="btn-start">시작</button>
+                    <button type="button" class="btn btn--large" id="btn-pause" style="border:1px solid var(--color-border);background:#fff;">일시정지</button>
+                    <button type="button" class="btn btn--large" id="btn-reset" style="border:1px solid var(--color-border);background:#fff;">리셋</button>
+                </div>
+
+                <p class="tool-note" role="note">
+                    오늘 완료한 집중 세션 수: <strong id="stat-count">0</strong>회 (이 브라우저에만 저장)<br>
+                    의료·법률 등 중요한 판단은 전문가에게 문의하세요. 다른 도구는 <a href="/tools/index.html">무드 도구 모음</a>에서 이동할 수 있습니다.
+                </p>
+            </div>
+
+            <div class="policy-section tool-faq-in-policy">
+                <h2>이 페이지에 대해</h2>
+                <details>
+                    <summary>뽀모도로 25·5는 무엇인가요?</summary>
+                    <p>25분 집중 뒤 5분 휴식을 권장하는 널리 쓰이는 루틴입니다. 이 페이지에서는 우선 집중 25분만 타이머로 제공하며, 휴식은 사용자가 직접 리셋 후 짧은 프리셋으로 이어가실 수 있습니다.</p>
+                </details>
+                <details>
+                    <summary>백그라운드에서도 돌아가나요?</summary>
+                    <p>브라우저와 운영체제의 절전·탭 정지 정책에 따라 타이머가 느려지거나 멈출 수 있습니다. 중요한 마감에는 기기 기본 시계를 함께 사용하세요.</p>
+                </details>
+            </div>
+
+            <p class="tool-related tool-related--in-card">
+                <a href="/tools/index.html">← 무드 도구 목록</a> · <a href="/privacy.html">개인정보처리방침</a>
+            </p>
+        </section>
+    </main>
+
+    <script src="/assets/js/footer.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script>
+(function () {
+    var totalSec = 1500;
+    var remain = totalSec;
+    var timer = null;
+    var running = false;
+    var display = document.getElementById('display');
+    var phaseLabel = document.getElementById('phase-label');
+    var statEl = document.getElementById('stat-count');
+    var KEY = 'moodpick_focus_sessions_' + new Date().toISOString().slice(0, 10);
+
+    function pad(n) { return n < 10 ? '0' + n : String(n); }
+    function render() {
+        var m = Math.floor(remain / 60);
+        var s = remain % 60;
+        display.textContent = m + ':' + pad(s);
+    }
+    function readStat() {
+        try { return parseInt(localStorage.getItem(KEY) || '0', 10) || 0; } catch (e) { return 0; }
+    }
+    function writeStat(n) {
+        try { localStorage.setItem(KEY, String(n)); } catch (e) {}
+        statEl.textContent = String(n);
+    }
+    writeStat(readStat());
+
+    function tick() {
+        if (remain <= 0) {
+            clearInterval(timer);
+            timer = null;
+            running = false;
+            remain = 0;
+            render();
+            phaseLabel.textContent = '세션 완료';
+            writeStat(readStat() + 1);
+            try {
+                if (window.AudioContext || window.webkitAudioContext) {
+                    var ctx = new (window.AudioContext || window.webkitAudioContext)();
+                    var o = ctx.createOscillator();
+                    var g = ctx.createGain();
+                    o.connect(g);
+                    g.connect(ctx.destination);
+                    o.frequency.value = 880;
+                    g.gain.value = 0.04;
+                    o.start();
+                    o.stop(ctx.currentTime + 0.12);
+                }
+            } catch (e) {}
+            return;
+        }
+        remain--;
+        render();
+    }
+
+    document.getElementById('preset-row').addEventListener('click', function (e) {
+        var btn = e.target.closest('.tool-chip');
+        if (!btn || !btn.dataset.sec) return;
+        document.querySelectorAll('#preset-row .tool-chip').forEach(function (b) { b.classList.remove('is-active'); });
+        btn.classList.add('is-active');
+        totalSec = parseInt(btn.dataset.sec, 10);
+        pauseClear();
+        remain = totalSec;
+        phaseLabel.textContent = '집중 세션';
+        render();
+    });
+
+    document.getElementById('apply-custom').addEventListener('click', function () {
+        var v = parseInt(document.getElementById('custom-min').value, 10);
+        if (!v || v < 1 || v > 180) return;
+        document.querySelectorAll('#preset-row .tool-chip').forEach(function (b) { b.classList.remove('is-active'); });
+        totalSec = v * 60;
+        pauseClear();
+        remain = totalSec;
+        phaseLabel.textContent = '집중 세션';
+        render();
+    });
+
+    function pauseClear() {
+        if (timer) { clearInterval(timer); timer = null; }
+        running = false;
+    }
+
+    document.getElementById('btn-start').addEventListener('click', function () {
+        if (running) return;
+        if (remain <= 0) remain = totalSec;
+        running = true;
+        phaseLabel.textContent = '집중 중…';
+        timer = setInterval(tick, 1000);
+    });
+
+    document.getElementById('btn-pause').addEventListener('click', function () {
+        pauseClear();
+        phaseLabel.textContent = '일시정지';
+    });
+
+    document.getElementById('btn-reset').addEventListener('click', function () {
+        pauseClear();
+        remain = totalSec;
+        phaseLabel.textContent = '집중 세션';
+        render();
+    });
+
+    render();
+})();
+    </script>
+    <script src="//wcs.pstatic.net/wcslog.js"></script>
+    <script>
+        if (!window.wcs_add) window.wcs_add = {};
+        window.wcs_add["wa"] = "1c927f4cd89e390";
+        if (window.wcs) wcs_do();
+    </script>
+</body>
+
+</html>
