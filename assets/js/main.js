@@ -137,8 +137,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     // .fade-in 과 .fade-in-up 요소 수집 후 초기화
+    // game.html 등: 게임 페이지는 game.js가 DOM을 제어하므로 hidden 처리 시 화면이 사라지지 않게 제외
     const animateElements = document.querySelectorAll('.fade-in, .fade-in-up');
     animateElements.forEach(el => {
+        if (el.closest('.game-page')) return;
+
         // 기존 스타일의 animationDelay 가 있다면 data-delay 로 백업
         if (el.style.animationDelay) {
             el.setAttribute('data-delay', el.style.animationDelay);

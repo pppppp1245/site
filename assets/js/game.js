@@ -4,9 +4,6 @@
  * 10~20대 감성에 맞춘 이너 모달(Overlay) 방식으로 결과 UI 개선
  */
 
-const params = new URLSearchParams(window.location.search);
-const gameType = params.get("type");
-
 const gameTitleEl = document.getElementById("game-title");
 const gameContainer = document.getElementById("game-container");
 const btnStart = document.getElementById("btn-start");
@@ -17,23 +14,28 @@ let reqId; // requestAnimationFrame 식별자
 
 // DOM Load 시 진입로직
 document.addEventListener("DOMContentLoaded", () => {
-    if(!gameType) {
-        alert("게임 정보가 유효하지 않습니다!");
-        window.location.href = "arcade.html";
-        return;
+    const params = new URLSearchParams(window.location.search);
+    let gameType = (params.get("type") || "").trim();
+
+    // type 없이 들어온 경우(메뉴의 game.html 링크 등): 알림 없이 기본 게임으로 진입
+    if (!gameType) {
+        gameType = "click";
+        const url = new URL(window.location.href);
+        url.searchParams.set("type", gameType);
+        window.history.replaceState({}, "", url.pathname + url.search + url.hash);
     }
 
-    if(gameType === "click") {
+    if (gameType === "click") {
         initClickGame();
-    } else if(gameType === "timing") {
+    } else if (gameType === "timing") {
         initTimingGame();
-    } else if(gameType === "stack") {
+    } else if (gameType === "stack") {
         initStackGame();
-    } else if(gameType === "redlight") {
+    } else if (gameType === "redlight") {
         initRedLightGame();
     } else {
-        alert("알 수 없는 게임입니다!");
-        window.location.href = "arcade.html";
+        window.location.replace(new URL("arcade.html", document.baseURI).href);
+        return;
     }
 
     // 결과 모달 버튼 이벤트 전역 할당
